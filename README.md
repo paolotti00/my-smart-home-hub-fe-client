@@ -1,3 +1,5 @@
+https://medium.com/@shijin_nath/angular-right-file-structure-and-best-practices-that-help-to-scale-2020-52ce8d967df5
+
 # MySmartHome
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
