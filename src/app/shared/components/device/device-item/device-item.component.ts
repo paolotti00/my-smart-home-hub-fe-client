@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-device-item',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./device-item.component.scss']
 })
 export class DeviceItemComponent {
-
+  @Input()
+  inListMode:boolean=false; // pass as true if you are using this component inside the device-list component
 }
