@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
   selector: 'app-device-item',
@@ -8,4 +8,10 @@ import {Component, Input} from '@angular/core';
 export class DeviceItemComponent {
   @Input()
   inListMode:boolean=false; // pass as true if you are using this component inside the device-list component
+  @Input()
+  colSpan:number=1
+  @HostBinding('class')
+  public get getClass():string {
+    return 'col-span-'+this.colSpan;
+  }
 }
