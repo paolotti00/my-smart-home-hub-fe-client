@@ -1,10 +1,10 @@
-import {ComponentWorkingStatusIn} from "./componentWorkingStatusIn.model";
-import {ComponentWorkingStatusOut} from "./componentWorkingStatusOut.model";
+import {ComponentWorkingStatusInModel} from "./componentWorkingStatusIn.model";
+import {ComponentWorkingStatusOutModel} from "./componentWorkingStatusOut.model";
 import {OnOffStatusEnum} from "./enums/onOffStatus.enum";
 
-export interface ComponentWorkingStatus{
-  in:ComponentWorkingStatusIn;
-  out:ComponentWorkingStatusOut;
+export interface ComponentWorkingStatusModel {
+  in:ComponentWorkingStatusInModel;
+  out:ComponentWorkingStatusOutModel;
   powerStatus:OnOffStatusEnum;
 
 }

@@ -1,6 +1,6 @@
-import {Component} from "./component.model";
+import {ComponentModel} from "./component.model";
 
-export interface ComponentWrapper{
-  componentsList:Component[];
+export interface ComponentWrapperModel {
+  componentsList:ComponentModel[];
   numberOfComponents:Map<string,number>;
 }

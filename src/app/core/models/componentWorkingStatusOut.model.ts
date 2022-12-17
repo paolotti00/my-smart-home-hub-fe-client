@@ -1,6 +1,6 @@
-import {ColorRgb} from "./colorRgb.model";
+import {ColorRgbModel} from "./colorRgb.model";
 
-export interface ComponentWorkingStatusOut{
-  colorRgb:ColorRgb;
+export interface ComponentWorkingStatusOutModel {
+  colorRgb:ColorRgbModel;
   intensity:number;
 }

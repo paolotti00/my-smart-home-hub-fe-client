@@ -1,3 +1,3 @@
-export interface ComponentWorkingStatusIn{
+export interface ComponentWorkingStatusInModel {
   temperature:number;
 }
