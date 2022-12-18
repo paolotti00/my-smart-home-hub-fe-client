@@ -1,4 +1,4 @@
 export enum OnOffStatusEnum{
-  OFF,
-  ON
+  OFF="OFF",
+  ON="ON"
 }
