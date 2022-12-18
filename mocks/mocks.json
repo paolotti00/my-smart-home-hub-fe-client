@@ -19,15 +19,15 @@
               "type": "LIGHT",
               "workingStatus": {
                 "in": {
-                  "temperature": 0
+                  "temperature": 30
                 },
                 "out": {
                   "colorRgb": {
-                    "b": 0,
-                    "g": 0,
-                    "r": 0
+                    "b": 238,
+                    "g": 130,
+                    "r": 238
                   },
-                  "intensity": 0,
+                  "intensity": 30,
                   "powerStatus": "OFF"
                 },
                 "powerStatus": "OFF"

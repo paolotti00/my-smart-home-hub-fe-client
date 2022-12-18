@@ -1,4 +1,13 @@
-<div class="w-full h-0 shadow-lg pb-full rounded-xl bg-green-300">
-  <fa-icon class="text-center fa-5x" [icon]="faLightbulb"></fa-icon>
-  <span>{{deviceComponent.workingStatus.out.intensity}}</span>
+<div class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
+  <div class="absolute min-w-full h-3/5 pt-2">
+    <fa-icon class="text-center" [icon]="faLightbulb" [styles]="{'height':'100%','width':'100%'}"  style="color: rgb(
+         {{deviceComponent.workingStatus.out.colorRgb.r}},
+         {{deviceComponent.workingStatus.out.colorRgb.g}},
+         {{deviceComponent.workingStatus.out.colorRgb.b}}
+       )">
+    </fa-icon>
+  </div>
+  <div class="absolute inset-x-0 text-center bottom-0 h-2/5 pt-2" >
+    <p class="text-xl">{{deviceComponent.workingStatus.out.intensity}}%</p>
+  </div>
 </div>
