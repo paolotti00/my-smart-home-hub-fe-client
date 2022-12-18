@@ -6,7 +6,6 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { DeviceItemComponent } from './components/device/device-item/device-item.component';
 import { DevicesListComponent } from './components/device/devices-list/devices-list.component';
 import { DeviceComponentLightComponent } from './components/device/device-component-light/device-component-light.component';
-import { DeviceComponentLightDetailComponent } from './components/device/device-component-light-detail/device-component-light-detail.component';
 
 
 
@@ -17,12 +16,11 @@ import { DeviceComponentLightDetailComponent } from './components/device/device-
     DeviceItemComponent,
     DevicesListComponent,
     DeviceComponentLightComponent,
-    DeviceComponentLightDetailComponent
   ],
-  exports: [
-    RoomsListComponent,
-    DevicesListComponent
-  ],
+    exports: [
+        RoomsListComponent,
+        DevicesListComponent
+    ],
     imports: [
         CommonModule,
         FontAwesomeModule

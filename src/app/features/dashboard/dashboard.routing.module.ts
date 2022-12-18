@@ -4,7 +4,7 @@ import {DashboardComponent} from "./dashboard.component";
 
 export const dashboardRoutingModule: Routes = [
   {
-    path:dashboardRoutesNames.DASHBOARD,
+    path:dashboardRoutesNames.DASHBOARD_BASE_URL,
     component:DashboardComponent,
     data:{
       authorities:['', '', ''],
