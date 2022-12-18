@@ -16,4 +16,12 @@ export class ApiUrlUtilityService {
       console.warn(url+" is a mock!");
     } return url;
   }
+  getGetDevicesUrl(idUser:string){
+    let url:string;
+    let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/users/'+idUser+'/devices/';
+    if(this.getUserUrlIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
 }
