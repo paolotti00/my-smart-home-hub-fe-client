@@ -4,12 +4,16 @@
 
     <div class="w-full h-0 shadow-lg pb-full rounded-xl bg-yellow-300">
       <div *ngIf="colSpan>1" class="grid grid-cols-2 grid-rows-2">
-        <app-device-component-light></app-device-component-light>
-        <app-device-component-light></app-device-component-light>
-        <app-device-component-light></app-device-component-light>
-        <app-device-component-light></app-device-component-light>
+        <div *ngFor="let deviceComponent of device.components.componentsList">
+          <app-device-component-light *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component-light>
+        </div>
       </div>
-      <app-device-component-light *ngIf="colSpan==1"></app-device-component-light>
+      <ng-container *ngIf="colSpan==1">
+        <div *ngFor="let deviceComponent of device.components.componentsList">
+          <app-device-component-light *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component-light>
+        </div>
+      </ng-container>
+      <app-device-component-light  *ngIf="colSpan==1"></app-device-component-light>
 <!--    <h2 class="card-title">Shoes!</h2>-->
     </div>
   </div>

@@ -23,15 +23,11 @@ export class InitService {
     })
   }
   getSharedObject(idUser: string): Observable<SharedObjectModel> {
-    console.log("4")
     return new Observable<SharedObjectModel>(observe => {
-      console.log("5")
       if (this.appInitialized){
-        console.log("3")
         observe.next(this.sharedObject);
       }else{
          this.userService.getUser(idUser).subscribe(result => {
-           console.log("2")
            this.sharedObject.currentUser = result;
            observe.next(this.sharedObject)
         })

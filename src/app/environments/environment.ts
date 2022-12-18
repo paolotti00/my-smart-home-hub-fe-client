@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   SERVER_API_URL:"",
-  SERVER_MOCKS_API_URL:"http://localhost:3001"
+  SERVER_MOCKS_API_URL:"http://192.168.50.170:3001"
 };
 
 /*
