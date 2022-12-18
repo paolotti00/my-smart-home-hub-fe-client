@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "john",
+      "surname": "doe",
+      "email": "j.doe@email.com"
+    }],
+    "devices": [
+      {
+        "activationDate": "2022-12-17T09:55:34.150Z",
+        "brand": "PAOLOTTI",
+        "components": {
+          "componentsList": [
+            {
+              "description": "string",
+              "id": "string",
+              "status": "OFFLINE",
+              "type": "LIGHT",
+              "workingStatus": {
+                "in": {
+                  "temperature": 0
+                },
+                "out": {
+                  "colorRgb": {
+                    "b": 0,
+                    "g": 0,
+                    "r": 0
+                  },
+                  "intensity": 0,
+                  "powerStatus": "OFF"
+                },
+                "powerStatus": "OFF"
+              }
+            }
+          ],
+          "numberOfComponents": {
+            "additionalProp1": 0,
+            "additionalProp2": 0,
+            "additionalProp3": 0
+          }
+        },
+        "creationDate": "2022-12-17T09:55:34.150Z",
+        "firmwareVersion": "string",
+        "id": "string",
+        "installationStatus": "ACTIVE",
+        "name": "string",
+        "networkData": {
+          "ip": "string",
+          "macAddress": "string",
+          "name": "string"
+        },
+        "registrationDate": "2022-12-17T09:55:34.150Z",
+        "status": "OFFLINE",
+        "user": {
+          "email": "string",
+          "id": "string",
+          "name": "string",
+          "surname": "string"
+        }
+      }
+    ]
+}
