@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {SharedObjectModel} from "../models/sharedObject.model";
 import {ApiUrlUtilityService} from "./api-url-utility.service";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {UserService} from "./user.service";
 
 @Injectable({
@@ -10,28 +10,39 @@ import {UserService} from "./user.service";
 })
 export class InitService {
   appInitialized=false;
-  sharedObject = {} as SharedObjectModel
+  sharedObject = new BehaviorSubject<SharedObjectModel>({} as SharedObjectModel);
 
   constructor(private http: HttpClient,private apiUrlUtilityService:ApiUrlUtilityService,private userService:UserService) { }
 
   initApp(idUser: string){
     console.log("getting shared object")
-    this.getSharedObject(idUser).subscribe(result => {
-      this.sharedObject = result;
+    this.initSharedObject(idUser).subscribe(result => {
+      if(result){
+        this.sharedObject.next(result);
+      }
       this.appInitialized=true;
       console.log("app initialized. shared object created")
     })
   }
-  getSharedObject(idUser: string): Observable<SharedObjectModel> {
+  initSharedObject(idUser: string): Observable<SharedObjectModel> {
     return new Observable<SharedObjectModel>(observe => {
       if (this.appInitialized){
-        observe.next(this.sharedObject);
+        observe.complete();
       }else{
+        let tempSharedObject = {} as SharedObjectModel;
          this.userService.getUser(idUser).subscribe(result => {
-           this.sharedObject.currentUser = result;
-           observe.next(this.sharedObject)
+           tempSharedObject.isInitialized=true;
+           tempSharedObject.currentUser = result;
+           observe.next(tempSharedObject)
         })
       }
+    })
+  }
+  getSharedObject():Observable<SharedObjectModel>{
+    return new Observable<SharedObjectModel>(observe=>{
+      this.sharedObject.subscribe(result=>{
+        observe.next(result)
+      })
     })
   }
 }

@@ -8,6 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {HttpClientModule} from "@angular/common/http";
+import {DashboardModule} from "./features/dashboard/dashboard.module";
+import {DeviceModule} from "./features/device/device.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    DashboardModule,
+    DeviceModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
