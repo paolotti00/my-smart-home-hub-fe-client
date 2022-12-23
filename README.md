@@ -1,5 +1,10 @@
 https://medium.com/@shijin_nath/angular-right-file-structure-and-best-practices-that-help-to-scale-2020-52ce8d967df5
 
+# various 
+## package json
+"start-mock-server": "json-server --host 192.168.50.170 --port 3001 --watch mocks/mocks.json --routes mocks/routes.json"
+## environments
+SERVER_MOCKS_API_URL:"http://192.168.50.170:3001"
 # MySmartHome
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
