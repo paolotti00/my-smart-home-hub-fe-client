@@ -1,1 +1,16 @@
 <app-name [name]="'light component'"></app-name>
+<div class="tabs justify-center">
+  <a class="tab" (click)="setActiveTab(TAB_DEFAULT)">Defaults</a>
+  <a class="tab" (click)="setActiveTab(TAB_WHITE)">White</a>
+  <a class="tab" (click)="setActiveTab(TAB_COLOR)">Color</a>
+</div>
+<div class="divider mt-0"></div>
+<div *ngIf="activeTab==TAB_DEFAULT" class="container">
+  <app-grid-list [items]="gridListItemInputList"></app-grid-list>
+</div>
+<div *ngIf="activeTab==TAB_WHITE" class="container">
+  test 2
+</div>
+<div *ngIf="activeTab==TAB_COLOR" class="container">
+  test 3
+</div>

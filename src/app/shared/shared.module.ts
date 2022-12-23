@@ -7,6 +7,7 @@ import { DeviceItemComponent } from './components/device/device-item/device-item
 import { DevicesListComponent } from './components/device/devices-list/devices-list.component';
 import { DeviceComponentLightComponent } from './components/device/device-component-light/device-component-light.component';
 import { NameComponent } from './components/name/name.component';
+import { GridListComponent } from './components/grid-list/grid-list.component';
 
 
 
@@ -18,12 +19,14 @@ import { NameComponent } from './components/name/name.component';
     DevicesListComponent,
     DeviceComponentLightComponent,
     NameComponent,
+    GridListComponent,
   ],
-  exports: [
-    RoomsListComponent,
-    DevicesListComponent,
-    NameComponent
-  ],
+    exports: [
+        RoomsListComponent,
+        DevicesListComponent,
+        NameComponent,
+        GridListComponent
+    ],
     imports: [
         CommonModule,
         FontAwesomeModule
