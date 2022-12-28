@@ -4,6 +4,7 @@ import {InitService} from "../../../../core/services/init.service";
 import {DeviceService} from "../../../../core/services/device.service";
 import {DeviceActionModel} from "../../../../core/models/deviceAction.model";
 import {GridListItemInputModel} from "../../../../core/models/gridListItemInput.model";
+import {IconsService} from "../../../../core/services/icons.service";
 
 @Component({
   selector: 'app-device-component-detail.page',
@@ -21,10 +22,10 @@ export class DeviceComponentLightDetailPageComponent implements OnInit {
   TAB_COLOR = 3
   activeTab = this.TAB_DEFAULT
   gridListItemInputList: GridListItemInputModel[] = []
-  // got from server
+  // to get from server
   deviceComponentActionList?: DeviceActionModel[];
 
-  constructor(private initService: InitService, private deviceService: DeviceService) {
+  constructor(private initService: InitService, private deviceService: DeviceService, private iconService:IconsService) {
   }
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class DeviceComponentLightDetailPageComponent implements OnInit {
       // fill gridListItemInput
       this.deviceComponentActionList.forEach(deviceComponentAction => {
         let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
-        gridListItemInput.icon = deviceComponentAction.icon;
+        gridListItemInput.icon = this.iconService.getLightComponentActionIcon(deviceComponentAction.id);
         gridListItemInput.label = deviceComponentAction.label;
         gridListItemInput.description = deviceComponentAction.description;
         gridListItemInput.id = deviceComponentAction.id;

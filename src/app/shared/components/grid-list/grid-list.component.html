@@ -3,7 +3,7 @@
     <ng-container>
       <div *ngFor="let item of items" class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
         <div class="absolute min-w-full h-3/5 pt-2">
-          <fa-icon class="text-center" [icon]="faLightbulb" [styles]="{'height':'100%','width':'100%'}">
+          <fa-icon class="text-center" [icon]="item.icon" [styles]="{'height':'100%','width':'100%'}">
           </fa-icon>
         </div>
         <div class="absolute inset-x-0 text-center bottom-0 h-2/5 pt-2" >

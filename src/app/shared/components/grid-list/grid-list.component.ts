@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
+import {Component, Input, OnChanges} from '@angular/core';
 import {GridListItemInputModel} from "../../../core/models/gridListItemInput.model";
 
 @Component({
@@ -10,6 +9,4 @@ import {GridListItemInputModel} from "../../../core/models/gridListItemInput.mod
 export class GridListComponent {
   @Input()
   items?:GridListItemInputModel[]
-  faLightbulb=faLightbulb
-
 }

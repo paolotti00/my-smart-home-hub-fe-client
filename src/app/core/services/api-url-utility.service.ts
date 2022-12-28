@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {serverConstants} from "../constants/server.constants";
-import {ComponentTypeEnum} from "../models/enums/componentType.enum";
+import {ComponentTypeEnum} from "../enums/componentType.enum";
 
 @Injectable({
   providedIn: 'root'

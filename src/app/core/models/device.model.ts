@@ -1,8 +1,7 @@
-import {ComponentModel} from "./component.model";
-import {InstallationStatusEnum} from "./enums/installationStatus.enum";
 import {NetworkDataModel} from "./networkData.model";
 import {ComponentWrapperModel} from "./componentWrapper.model";
-import {OnlineStatusEnum} from "./enums/onlineStatus.enum";
+import {InstallationStatusEnum} from "../enums/installationStatus.enum";
+import {OnlineStatusEnum} from "../enums/onlineStatus.enum";
 
 export interface DeviceModel {
   id:string;

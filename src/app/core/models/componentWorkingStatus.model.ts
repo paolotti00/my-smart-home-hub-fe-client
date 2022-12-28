@@ -1,6 +1,6 @@
 import {ComponentWorkingStatusInModel} from "./componentWorkingStatusIn.model";
 import {ComponentWorkingStatusOutModel} from "./componentWorkingStatusOut.model";
-import {OnOffStatusEnum} from "./enums/onOffStatus.enum";
+import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
 
 export interface ComponentWorkingStatusModel {
   in:ComponentWorkingStatusInModel;

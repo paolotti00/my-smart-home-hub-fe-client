@@ -1,6 +1,6 @@
 import {Component, HostBinding, Input} from '@angular/core';
 import {DeviceModel} from "../../../../core/models/device.model";
-import {ComponentTypeEnum} from "../../../../core/models/enums/componentType.enum";
+import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
 
 @Component({
   selector: 'app-device-item',

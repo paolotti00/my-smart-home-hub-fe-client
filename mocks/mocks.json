@@ -64,13 +64,11 @@
   "deviceAction_paolotti": [
     {
       "id": "crazy",
-      "icon": "faFaceZany",
       "label": "crazy",
       "description": "lorem impsum"
     },
     {
       "id": "romantic",
-      "icon": "faHeart",
       "label": "romantic",
       "description": "lorem impsum"
     }
@@ -79,13 +77,11 @@
   "deviceActionComponent_light_paolotti": [
     {
       "id": "crazy",
-      "icon": "faFaceZany",
       "label": "crazy",
       "description": "lorem impsum"
     },
     {
       "id": "romantic",
-      "icon": "faHeart",
       "label": "romantic",
       "description": "lorem impsum"
     }

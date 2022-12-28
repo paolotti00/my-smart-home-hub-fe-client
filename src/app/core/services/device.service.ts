@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {ApiUrlUtilityService} from "./api-url-utility.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ComponentTypeEnum} from "../models/enums/componentType.enum";
 import {DeviceActionModel} from "../models/deviceAction.model";
+import {ComponentTypeEnum} from "../enums/componentType.enum";
 
 @Injectable({
   providedIn: 'root'
