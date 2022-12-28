@@ -11,37 +11,18 @@ import {IconsService} from "../../../../core/services/icons.service";
   templateUrl: './device-component-light-detail.page.component.html',
   styleUrls: ['./device-component-light-detail.page.component.scss']
 })
-export class DeviceComponentLightDetailPageComponent implements OnInit {
+export class DeviceComponentLightDetailPageComponent {
   @Input()
   brand?: string;
   @Input()
   deviceComponent: ComponentModel = {} as ComponentModel;
   // tabs
-  TAB_DEFAULT = 1
+  TAB_ACTION = 1
   TAB_WHITE = 2
   TAB_COLOR = 3
-  activeTab = this.TAB_DEFAULT
-  gridListItemInputList: GridListItemInputModel[] = []
-  // to get from server
-  deviceComponentActionList?: DeviceActionModel[];
+  activeTab = this.TAB_ACTION
 
-  constructor(private initService: InitService, private deviceService: DeviceService, private iconService:IconsService) {
-  }
-
-  ngOnInit(): void {
-    this.deviceService.getDeviceComponentAction(this.brand!, this.deviceComponent.type).subscribe(result => {
-      this.deviceComponentActionList = result;
-      // fill gridListItemInput
-      this.deviceComponentActionList.forEach(deviceComponentAction => {
-        let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
-        gridListItemInput.icon = this.iconService.getLightComponentActionIcon(deviceComponentAction.id);
-        gridListItemInput.label = deviceComponentAction.label;
-        gridListItemInput.description = deviceComponentAction.description;
-        gridListItemInput.id = deviceComponentAction.id;
-        this.gridListItemInputList.push(gridListItemInput);
-      })
-
-    })
+  constructor(private initService: InitService) {
   }
 
   // tabs functions

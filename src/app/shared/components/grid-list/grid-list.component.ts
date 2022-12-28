@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {GridListItemInputModel} from "../../../core/models/gridListItemInput.model";
 
 @Component({
@@ -9,4 +9,10 @@ import {GridListItemInputModel} from "../../../core/models/gridListItemInput.mod
 export class GridListComponent {
   @Input()
   items?:GridListItemInputModel[]
+  @Output()
+  idOnClickEvent = new EventEmitter<string>;
+
+  emitClikEvent(itemId:string){
+    this.idOnClickEvent.emit(itemId)
+  }
 }

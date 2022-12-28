@@ -1,7 +1,7 @@
 <div class="max-w-screen-lg mx-auto p-4">
   <div class="grid grid-cols-3 gap-1 mt-10">
     <ng-container>
-      <div *ngFor="let item of items" class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
+      <div (click)="emitClikEvent(item.id)" *ngFor="let item of items" class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
         <div class="absolute min-w-full h-3/5 pt-2">
           <fa-icon class="text-center" [icon]="item.icon" [styles]="{'height':'100%','width':'100%'}">
           </fa-icon>
