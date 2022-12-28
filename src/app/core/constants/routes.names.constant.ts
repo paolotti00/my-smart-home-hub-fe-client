@@ -1,3 +1,6 @@
+export const defaultRoutesNames = {
+  HOME:''
+}
 export const dashboardRoutesNames = {
   DASHBOARD_BASE_URL: '',
 }
