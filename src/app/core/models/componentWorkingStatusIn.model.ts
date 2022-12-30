@@ -1,3 +1,6 @@
+import {ComponentMeasureModel} from "./componentMeasureModel";
+
 export interface ComponentWorkingStatusInModel {
-  temperature:number;
+  temperature:ComponentMeasureModel;
+  humidity:ComponentMeasureModel;
 }

@@ -3,10 +3,10 @@
     <p class="font-mono text-lg text-center font-semibold uppercase"> batman lamp</p>
     <div *ngFor="let deviceComponent of device.components.componentsList">
       <div *ngIf="colSpan>1" class="grid grid-cols-2 grid-rows-2">
-        <app-device-component-light *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component-light>
+        <app-device-component *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component>
       </div>
       <ng-container *ngIf="colSpan==1">
-        <app-device-component-light *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component-light>
+        <app-device-component *ngIf="deviceComponent.type==componentType_LIGHT" [deviceComponent]="deviceComponent"></app-device-component>
       </ng-container>
     </div>
     </div>

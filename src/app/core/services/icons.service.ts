@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
-import {lightComponentActionIconsConstant} from "../constants/action.icons.constant";
+import {ComponentIconsConstant, lightComponentActionIconsConstant} from "../constants/icons.constant";
+import {ComponentTypeEnum} from "../enums/componentType.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,16 @@ export class IconsService {
     if(!icon){
       // key not exist setting a default
       icon = lightComponentActionIconsConstant[this.DEFAULT_KEY]
+    }
+    return icon;
+  }
+
+  getComponentIconByType(type:ComponentTypeEnum){
+    let icon:IconDefinition | undefined;
+    icon = ComponentIconsConstant.get(type)
+    if(!icon){
+      // key not exist setting a default
+      icon = lightComponentActionIconsConstant[ComponentTypeEnum.MIX] // this is the default
     }
     return icon;
   }

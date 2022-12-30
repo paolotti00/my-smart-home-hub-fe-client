@@ -1,24 +1,49 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ApiUrlUtilityService} from "./api-url-utility.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {DeviceActionModel} from "../models/deviceAction.model";
 import {ComponentTypeEnum} from "../enums/componentType.enum";
+import {ComponentModel} from "../models/component.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceService {
 
-  constructor(private apiUrlUtilityService:ApiUrlUtilityService, private http: HttpClient) { }
+  constructor(private apiUrlUtilityService: ApiUrlUtilityService, private http: HttpClient) {
+  }
 
   getUserDevices(idUser: string): Observable<any> {
     return this.http.get<any>(this.apiUrlUtilityService.getGetDevicesUrl(idUser))
   }
+
   getDeviceAction(brand: string): Observable<DeviceActionModel[]> {
     return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceActionUrl(brand))
   }
-  getDeviceComponentAction(brand: string,componentType:ComponentTypeEnum): Observable<DeviceActionModel[]> {
-    return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceComponentActionUrl(brand,componentType))
+
+  getDeviceComponentAction(brand: string, componentType: ComponentTypeEnum): Observable<DeviceActionModel[]> {
+    return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceComponentActionUrl(brand, componentType))
+  }
+
+  getComponentValue(deviceComponent: ComponentModel):string {
+    let value = ''
+    switch (deviceComponent.type) {
+      case ComponentTypeEnum.LIGHT:
+        value = deviceComponent.workingStatus.out.intensity.value + ' ' + deviceComponent.workingStatus.out.intensity.unit
+        break
+      case ComponentTypeEnum.MIX:
+        value = ''
+        break
+      case ComponentTypeEnum.SENSOR_HEAT:
+        value = deviceComponent.workingStatus.in.temperature.value + ' ' + deviceComponent.workingStatus.in.temperature.unit
+        break
+      case ComponentTypeEnum.SENSOR_HUMIDITY:
+        value = deviceComponent.workingStatus.in.humidity.value + ' ' + deviceComponent.workingStatus.in.humidity.unit
+        break
+      default:
+        console.warn("" + deviceComponent.type + "is not supported. define it.")
+    }
+    return value;
   }
 }

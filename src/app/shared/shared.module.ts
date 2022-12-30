@@ -5,7 +5,7 @@ import { RoomItemComponent } from './components/room/room-item/room-item.compone
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { DeviceItemComponent } from './components/device/device-item/device-item.component';
 import { DevicesListComponent } from './components/device/devices-list/devices-list.component';
-import { DeviceComponentLightComponent } from './components/device/device-component-light/device-component-light.component';
+import { DeviceComponentComponent } from './components/device/device-component/device-component.component';
 import { NameComponent } from './components/name/name.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 
@@ -17,7 +17,7 @@ import { GridListComponent } from './components/grid-list/grid-list.component';
     RoomItemComponent,
     DeviceItemComponent,
     DevicesListComponent,
-    DeviceComponentLightComponent,
+    DeviceComponentComponent,
     NameComponent,
     GridListComponent,
   ],

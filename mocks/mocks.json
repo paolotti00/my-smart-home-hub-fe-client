@@ -21,7 +21,10 @@
             "type": "LIGHT",
             "workingStatus": {
               "in": {
-                "temperature": 30
+                "temperature": {
+                  "value": 30,
+                  "unit": "°"
+                }
               },
               "out": {
                 "colorRgb": {
@@ -29,7 +32,10 @@
                   "g": 130,
                   "r": 238
                 },
-                "intensity": 30,
+                "intensity": {
+                  "value": 30,
+                  "unit": "%"
+                },
                 "powerStatus": "OFF"
               },
               "powerStatus": "OFF"

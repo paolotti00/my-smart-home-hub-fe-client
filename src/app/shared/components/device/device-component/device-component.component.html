@@ -1,0 +1,13 @@
+<div class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative" (click)="goToDetail()">
+  <div class="absolute min-w-full h-3/5 pt-2">
+    <fa-icon class="text-center" [icon]="icon" [styles]="{'height':'100%','width':'100%'}"  style="color: rgb(
+         {{iconColor.r}},
+         {{iconColor.g}},
+         {{iconColor.b}}
+       )">
+    </fa-icon>
+  </div>
+  <div class="absolute inset-x-0 text-center bottom-0 h-2/5 pt-2" >
+    <p class="text-xl">{{value}}</p>
+  </div>
+</div>
