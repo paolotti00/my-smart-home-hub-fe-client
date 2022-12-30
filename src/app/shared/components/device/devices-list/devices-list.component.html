@@ -1,8 +1,0 @@
-<div class="max-w-screen-lg mx-auto p-4">
-  <div class="grid grid-cols-3 gap-1 mt-10">
-    <div *ngFor="let device of devices">
-      <app-device-item [inListMode]="true" [colSpan]="getNColSpan(device.components)" [device]="device"></app-device-item>
-    </div>
-  </div>
-</div>
-

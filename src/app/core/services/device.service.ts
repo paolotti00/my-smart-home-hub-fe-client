@@ -35,7 +35,7 @@ export class DeviceService {
       case ComponentTypeEnum.MIX:
         value = ''
         break
-      case ComponentTypeEnum.SENSOR_HEAT:
+      case ComponentTypeEnum.SENSOR_TEMPERATURE:
         value = deviceComponent.workingStatus.in.temperature.value + ' ' + deviceComponent.workingStatus.in.temperature.unit
         break
       case ComponentTypeEnum.SENSOR_HUMIDITY:

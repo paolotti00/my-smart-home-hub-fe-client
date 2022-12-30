@@ -12,6 +12,7 @@
       "id": "1",
       "activationDate": "2022-12-17T09:55:34.150Z",
       "brand": "PAOLOTTI",
+      "name":"batman lamp",
       "components": {
         "componentsList": [
           {
@@ -20,12 +21,6 @@
             "status": "OFFLINE",
             "type": "LIGHT",
             "workingStatus": {
-              "in": {
-                "temperature": {
-                  "value": 30,
-                  "unit": "°"
-                }
-              },
               "out": {
                 "colorRgb": {
                   "b": 238,
@@ -40,6 +35,21 @@
               },
               "powerStatus": "OFF"
             }
+          },
+          {
+            "description": "string",
+            "id": "string",
+            "status": "OFFLINE",
+            "type": "SENSOR_TEMPERATURE",
+            "workingStatus": {
+              "in": {
+                "temperature": {
+                  "value": 23,
+                  "unit": "°"
+                }
+              },
+              "powerStatus": "OFF"
+            }
           }
         ],
         "numberOfComponents": {
@@ -51,7 +61,52 @@
       "creationDate": "2022-12-17T09:55:34.150Z",
       "firmwareVersion": "string",
       "installationStatus": "ACTIVE",
-      "name": "string",
+      "networkData": {
+        "ip": "string",
+        "macAddress": "string",
+        "name": "string"
+      },
+      "registrationDate": "2022-12-17T09:55:34.150Z",
+      "status": "OFFLINE",
+      "user": {
+        "email": "string",
+        "id": "string",
+        "name": "string",
+        "surname": "string"
+      }
+    },
+    {
+      "id": "2",
+      "activationDate": "2022-12-17T09:55:34.150Z",
+      "brand": "PAOLOTTI",
+      "name":"thermometer",
+      "components": {
+        "componentsList": [
+          {
+            "description": "string",
+            "id": "string",
+            "status": "OFFLINE",
+            "type": "SENSOR_TEMPERATURE",
+            "workingStatus": {
+              "in": {
+                "temperature": {
+                  "value": 19,
+                  "unit": "°"
+                }
+              },
+              "powerStatus": "OFF"
+            }
+          }
+        ],
+        "numberOfComponents": {
+          "additionalProp1": 0,
+          "additionalProp2": 0,
+          "additionalProp3": 0
+        }
+      },
+      "creationDate": "2022-12-17T09:55:34.150Z",
+      "firmwareVersion": "string",
+      "installationStatus": "ACTIVE",
       "networkData": {
         "ip": "string",
         "macAddress": "string",

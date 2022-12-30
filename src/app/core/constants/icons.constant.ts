@@ -10,6 +10,6 @@ export const lightComponentActionIconsConstant : {[key:string]:IconDefinition} =
 
 export const ComponentIconsConstant: Map<ComponentTypeEnum, IconDefinition> = new Map([
   [ComponentTypeEnum.LIGHT, faLightbulb],
-  [ComponentTypeEnum.SENSOR_HEAT, faTemperatureFull],
+  [ComponentTypeEnum.SENSOR_TEMPERATURE, faTemperatureFull],
   [ComponentTypeEnum.MIX, faMicrochip], // default
 ]);

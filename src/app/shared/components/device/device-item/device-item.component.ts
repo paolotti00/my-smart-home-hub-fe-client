@@ -20,6 +20,6 @@ export class DeviceItemComponent {
   }
   componentType_MIX = ComponentTypeEnum.MIX;
   componentType_LIGHT = ComponentTypeEnum.LIGHT;
-  componentType_HEAT = ComponentTypeEnum.SENSOR_HEAT;
+  componentType_HEAT = ComponentTypeEnum.SENSOR_TEMPERATURE;
   componentType_HUMIDITY = ComponentTypeEnum.SENSOR_HUMIDITY;
 }
