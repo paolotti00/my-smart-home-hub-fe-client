@@ -17,7 +17,7 @@ export class DeviceItemComponent {
   @HostBinding('class')
   public get getClasses(): string {
     return 'col-span-' + this.colSpan
-      + ' ' + 'bg-slate-600' // backgourd color
+      + ' ' + 'bg-white/10' // background color
       + ' ' + 'h-fit' // height
       + ' ' + 'p-2'; // padding
   }
