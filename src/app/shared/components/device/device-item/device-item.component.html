@@ -1,7 +1,7 @@
 <div [ngClass]="{'max-w-screen-lg mx-auto p-4':!inListMode}">
   <div [ngClass]="{'grid grid-cols-2 gap-1 mt-2':!inListMode}">
     <p class="font-mono text-lg text-center font-semibold uppercase"> {{device.name}}</p>
-    <div [ngClass]="{'grid grid-cols-2 grid-rows-2':colSpan>1}">
+    <div [ngClass]="{'grid grid-cols-2 grid-rows-2 gap-1':colSpan>1}">
       <div *ngFor="let deviceComponent of device.components.componentsList">
         <app-device-component [deviceComponent]="deviceComponent"></app-device-component>
       </div>

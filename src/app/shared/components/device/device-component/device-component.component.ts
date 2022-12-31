@@ -17,6 +17,8 @@ import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
 export class DeviceComponentComponent implements OnInit, OnChanges {
   @Input()
   deviceComponent = {} as ComponentModel
+  @Input()
+  deviceId = {}
   iconColor: ColorRgbModel = {r: 1, g: 1, b: 2};
   icon: IconDefinition = this.iconsService.getComponentIconByType(ComponentTypeEnum.MIX) // default
   value = "";
@@ -44,6 +46,11 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
   }
 
   goToDetail(){
-    this.router.navigate([deviceRoutesName.DEVICE_BASE_URL+'/'+deviceRoutesName.DEVICE_COMPONENT_LIGHT_DETAILS])
+    let routeTarget = this.deviceService.getRouteToComponentDetail(this.deviceComponent.type)
+    if(routeTarget){
+      this.router.navigate([routeTarget,{deviceId:this.deviceId,deviceComponentId:this.deviceComponent.id}])
+    } else {
+      console.warn("routeTarget is undefined")
+    }
   }
 }

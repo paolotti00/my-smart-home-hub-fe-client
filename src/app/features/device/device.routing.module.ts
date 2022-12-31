@@ -1,7 +1,7 @@
 import {Routes} from "@angular/router";
 import {
   DeviceComponentLightDetailPageComponent
-} from "./pages/device-component-detail/device-component-light-detail.page.component";
+} from "./pages/device-component-detail-light/device-component-light-detail.page.component";
 import {deviceRoutesName} from "../../core/constants/routes.names.constant";
 import {DeviceDetailPageComponent} from "./pages/device-detail/device-detail.page.component";
 
