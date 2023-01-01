@@ -8,6 +8,6 @@ export const roomsRoutesName = {
   PAGE_ROOMS: 'rooms'
 }
 export const deviceRoutesName = {
-  DEVICE_BASE_URL:'device',
-  DEVICE_COMPONENT_LIGHT_DETAILS:"component/light/detail"
+  DEVICE_BASE_URL:'device/:id',
+  DEVICE_COMPONENT_LIGHT_DETAILS:"component/:id/light/detail"
 }

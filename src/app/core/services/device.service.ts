@@ -36,27 +36,6 @@ export class DeviceService {
     }
     return value;
   }
-  // add case in case of new component type
-  getRouteToComponentDetail(deviceComponentType: ComponentTypeEnum){
-    let value = undefined
-    switch (deviceComponentType) {
-      case ComponentTypeEnum.LIGHT:
-        value = deviceRoutesName.DEVICE_BASE_URL+'/'+deviceRoutesName.DEVICE_COMPONENT_LIGHT_DETAILS
-        break
-      case ComponentTypeEnum.MIX:
-        value = undefined
-        break
-      case ComponentTypeEnum.SENSOR_TEMPERATURE:
-        value = undefined
-        break
-      case ComponentTypeEnum.SENSOR_HUMIDITY:
-        value = undefined
-        break
-      default:
-        console.warn("routing to " + deviceComponentType + " detail is not yet supported. define it.")
-    }
-    return value;
-  }
 
   // server calls
   getUserDevices(idUser: string): Observable<any> {

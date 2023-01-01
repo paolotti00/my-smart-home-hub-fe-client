@@ -3,7 +3,7 @@
     <p class="font-mono text-lg text-center font-semibold uppercase"> {{device.name}}</p>
     <div [ngClass]="{'grid grid-cols-2 grid-rows-2 gap-1':colSpan>1}">
       <div *ngFor="let deviceComponent of device.components.componentsList">
-        <app-device-component [deviceComponent]="deviceComponent"></app-device-component>
+        <app-device-component [deviceComponent]="deviceComponent" [deviceId]="device.id"></app-device-component>
       </div>
     </div>
   </div>

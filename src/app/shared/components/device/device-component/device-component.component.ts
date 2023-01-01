@@ -1,12 +1,12 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ComponentModel} from "../../../../core/models/component.model";
 import {Router} from "@angular/router";
-import {deviceRoutesName} from "../../../../core/constants/routes.names.constant";
 import {ColorRgbModel} from "../../../../core/models/colorRgb.model";
 import {IconsService} from "../../../../core/services/icons.service";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 import {DeviceService} from "../../../../core/services/device.service";
 import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
+import {RouteCustomService} from "../../../../core/services/route.custom.service";
 
 
 @Component({
@@ -18,12 +18,12 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
   @Input()
   deviceComponent = {} as ComponentModel
   @Input()
-  deviceId = {}
+  deviceId = ""
   iconColor: ColorRgbModel = {r: 1, g: 1, b: 2};
   icon: IconDefinition = this.iconsService.getComponentIconByType(ComponentTypeEnum.MIX) // default
   value = "";
 
-  constructor(private router: Router, private iconsService: IconsService, private deviceService: DeviceService){
+  constructor(private router: Router, private iconsService: IconsService, private deviceService: DeviceService, private routeCustomService:RouteCustomService){
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -46,9 +46,9 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
   }
 
   goToDetail(){
-    let routeTarget = this.deviceService.getRouteToComponentDetail(this.deviceComponent.type)
+    let routeTarget = this.routeCustomService.getRouteToComponentDetail(this.deviceComponent.type,this.deviceId,this.deviceComponent.id)
     if(routeTarget){
-      this.router.navigate([routeTarget,{deviceId:this.deviceId,deviceComponentId:this.deviceComponent.id}])
+      this.router.navigate([routeTarget])
     } else {
       console.warn("routeTarget is undefined")
     }
