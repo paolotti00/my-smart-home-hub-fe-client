@@ -6,11 +6,13 @@ import {RouterModule} from "@angular/router";
 import {deviceRoutingModule} from "./device.routing.module";
 import {DeviceDetailPageComponent} from "./pages/device-detail/device-detail.page.component";
 import { DeviceComponentLightActionComponent } from './components/device-component-light-action/device-component-light-action.component';
+import {DeviceMainPageComponent} from "./pages/device/device.main.page.component";
 
 
 
 @NgModule({
   declarations: [
+    DeviceMainPageComponent,
     DeviceComponentLightDetailPageComponent,
     DeviceDetailPageComponent,
     DeviceComponentLightActionComponent

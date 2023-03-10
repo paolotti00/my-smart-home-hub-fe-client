@@ -20,16 +20,16 @@ export class DeviceService {
     let value = ''
     switch (deviceComponent.type) {
       case ComponentTypeEnum.LIGHT:
-        value = deviceComponent.workingStatus.out.intensity.value + ' ' + deviceComponent.workingStatus.out.intensity.unit
+        value = "30 % todo"
         break
       case ComponentTypeEnum.MIX:
         value = ''
         break
       case ComponentTypeEnum.SENSOR_TEMPERATURE:
-        value = deviceComponent.workingStatus.in.temperature.value + ' ' + deviceComponent.workingStatus.in.temperature.unit
+        value = "30  todo"
         break
       case ComponentTypeEnum.SENSOR_HUMIDITY:
-        value = deviceComponent.workingStatus.in.humidity.value + ' ' + deviceComponent.workingStatus.in.humidity.unit
+        value = value = "30  todo"
         break
       default:
         console.warn("" + deviceComponent.type + " is not supported. define it.")

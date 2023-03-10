@@ -9,117 +9,45 @@
   ],
   "devices": [
     {
-      "id": "1",
-      "activationDate": "2022-12-17T09:55:34.150Z",
+      "_id": {"$oid": "63f942f9084ffe764b6003e2"},
+      "_class": "com.paolotti.my.smart.home.repository.entity.DeviceEntity",
       "brand": "PAOLOTTI",
-      "name":"batman lamp",
-      "components": {
-        "componentsList": [
-          {
-            "description": "string",
-            "id": "string",
-            "status": "OFFLINE",
-            "type": "LIGHT",
-            "workingStatus": {
-              "out": {
-                "colorRgb": {
-                  "b": 238,
-                  "g": 130,
-                  "r": 238
-                },
-                "intensity": {
-                  "value": 30,
-                  "unit": "%"
-                },
-                "powerStatus": "OFF"
-              },
-              "powerStatus": "OFF"
+      "components": [
+        {
+          "_id": "1",
+          "leds": {
+            "-1": {
+              "rgbColor": "255,51,255"
             }
           },
-          {
-            "description": "string",
-            "id": "string",
-            "status": "OFFLINE",
-            "type": "SENSOR_TEMPERATURE",
-            "workingStatus": {
-              "in": {
-                "temperature": {
-                  "value": 23,
-                  "unit": "°"
-                }
-              },
-              "powerStatus": "OFF"
+          "action": {
+            "name": "simple_color",
+            "effectData": {
+              "wait": "1",
+              "rgbColors": ["255, 51, 255"]
             }
-          }
-        ],
-        "numberOfComponents": {
-          "additionalProp1": 0,
-          "additionalProp2": 0,
-          "additionalProp3": 0
+          },
+          "type": "LIGHT",
+          "_class": "com.paolotti.my.smart.home.repository.entity.DeviceEntity$DeviceComponentEntityLight"
+        },
+        {
+          "_id": "1",
+          "type": "SENSOR_TEMPERATURE",
+          "_class": "com.paolotti.my.smart.home.repository.entity.DeviceEntity$DeviceComponentEntityLight"
         }
-      },
-      "creationDate": "2022-12-17T09:55:34.150Z",
-      "firmwareVersion": "string",
+      ],
+      "creationDate": {"$date": "2022-12-06T18:59:29.657Z"},
       "installationStatus": "ACTIVE",
+      "name": "device name",
       "networkData": {
         "ip": "string",
         "macAddress": "string",
         "name": "string"
       },
-      "registrationDate": "2022-12-17T09:55:34.150Z",
-      "status": "OFFLINE",
-      "user": {
-        "email": "string",
-        "id": "string",
-        "name": "string",
-        "surname": "string"
-      }
-    },
-    {
-      "id": "2",
-      "activationDate": "2022-12-17T09:55:34.150Z",
-      "brand": "PAOLOTTI",
-      "name":"thermometer",
-      "components": {
-        "componentsList": [
-          {
-            "description": "string",
-            "id": "string",
-            "status": "OFFLINE",
-            "type": "SENSOR_TEMPERATURE",
-            "workingStatus": {
-              "in": {
-                "temperature": {
-                  "value": 19,
-                  "unit": "°"
-                }
-              },
-              "powerStatus": "OFF"
-            }
-          }
-        ],
-        "numberOfComponents": {
-          "additionalProp1": 0,
-          "additionalProp2": 0,
-          "additionalProp3": 0
-        }
-      },
-      "creationDate": "2022-12-17T09:55:34.150Z",
-      "firmwareVersion": "string",
-      "installationStatus": "ACTIVE",
-      "networkData": {
-        "ip": "string",
-        "macAddress": "string",
-        "name": "string"
-      },
-      "registrationDate": "2022-12-17T09:55:34.150Z",
-      "status": "OFFLINE",
-      "user": {
-        "email": "string",
-        "id": "string",
-        "name": "string",
-        "surname": "string"
-      }
+      "status": "ONLINE",
+      "thingId": "8365da00",
+      "updateDate": {"$date": "2023-03-05T19:09:37.053Z"},
+      "usersOwnersIds": ["63713f514f9fe426d18ea904"]
     }
   ],
   "deviceAction_paolotti": [

@@ -1,3 +1,2 @@
-<app-name [name]="'devicename1'"></app-name>
-<app-device-item [device]="device"></app-device-item>
+<app-device-item [device]="device" [colSpan]="device!=undefined?(device.components.length>1?2:1):1"></app-device-item>
 <router-outlet></router-outlet>

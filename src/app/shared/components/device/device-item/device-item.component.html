@@ -1,8 +1,8 @@
 <div [ngClass]="{'max-w-screen-lg mx-auto p-4':!inListMode}">
-  <div [ngClass]="{'grid grid-cols-2 gap-1 mt-2':!inListMode}">
-    <p (click)="goToDetail()" class="font-mono text-lg text-center font-semibold uppercase"> {{device.name}}</p>
+  <p (click)="goToDetail()" class="font-mono text-lg text-center font-semibold uppercase"> {{device.name}}</p>
+  <div [ngClass]="{'grid gap-1 mt-2':!inListMode}">
     <div [ngClass]="{'grid grid-cols-2 grid-rows-2 gap-1':colSpan>1}">
-      <div *ngFor="let deviceComponent of device.components.componentsList">
+      <div *ngFor="let deviceComponent of device.components">
         <app-device-component [deviceComponent]="deviceComponent" [deviceId]="device.id"></app-device-component>
       </div>
     </div>

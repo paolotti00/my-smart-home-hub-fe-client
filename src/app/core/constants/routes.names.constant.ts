@@ -9,5 +9,6 @@ export const roomsRoutesName = {
 }
 export const deviceRoutesName = {
   DEVICE_BASE_URL:'device/:id',
-  DEVICE_COMPONENT_LIGHT_DETAILS:"component/:id/light/detail"
+  DEVICE_DETAIL: "detail",
+  DEVICE_COMPONENT_LIGHT_DETAILS:"component/:id/light/detail",
 }

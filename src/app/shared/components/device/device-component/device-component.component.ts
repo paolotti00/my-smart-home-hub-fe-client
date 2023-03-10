@@ -32,9 +32,9 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
       this.value = this.deviceService.getComponentValue(this.deviceComponent);
       // icon color
       if(this.deviceComponent.type== ComponentTypeEnum.LIGHT){
-        this.iconColor.r = this.deviceComponent.workingStatus.out.colorRgb.r
-        this.iconColor.g = this.deviceComponent.workingStatus.out.colorRgb.g
-        this.iconColor.b = this.deviceComponent.workingStatus.out.colorRgb.b
+        this.iconColor.r = 2 //todo
+        this.iconColor.g = 3 //todo
+        this.iconColor.b = 5 //todo
       }
     }
   }
