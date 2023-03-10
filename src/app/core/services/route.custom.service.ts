@@ -9,6 +9,9 @@ export class RouteCustomService {
 
   constructor() { }
   // device routing
+  getRouteToDeviceDetail(deviceId:string){
+    return deviceRoutesName.DEVICE_BASE_URL.replace(":id",deviceId)
+  }
   // add case in case of new component type
   getRouteToComponentDetail(deviceComponentType: ComponentTypeEnum,deviceId:string,componentId:string){
     let value = undefined
