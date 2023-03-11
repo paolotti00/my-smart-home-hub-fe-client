@@ -7,6 +7,9 @@ import {deviceRoutingModule} from "./device.routing.module";
 import {DeviceDetailPageComponent} from "./pages/device-detail/device-detail.page.component";
 import { DeviceComponentLightActionComponent } from './components/device-component-light-action/device-component-light-action.component';
 import {DeviceMainPageComponent} from "./pages/device/device.main.page.component";
+import {
+  DeviceComponentLightColorComponent
+} from "./components/device-component-light-color/device-component-light-color.component";
 
 
 
@@ -15,12 +18,13 @@ import {DeviceMainPageComponent} from "./pages/device/device.main.page.component
     DeviceMainPageComponent,
     DeviceComponentLightDetailPageComponent,
     DeviceDetailPageComponent,
-    DeviceComponentLightActionComponent
+    DeviceComponentLightActionComponent,
+    DeviceComponentLightColorComponent
   ],
-  imports: [
-    RouterModule.forChild(deviceRoutingModule),
-    SharedModule,
-    CommonModule
-  ]
+    imports: [
+        RouterModule.forChild(deviceRoutingModule),
+        SharedModule,
+        CommonModule
+    ]
 })
 export class DeviceModule { }

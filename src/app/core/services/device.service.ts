@@ -50,4 +50,15 @@ export class DeviceService {
   getDeviceComponentAction(brand: string, componentType: ComponentTypeEnum): Observable<DeviceActionModel[]> {
     return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceComponentActionUrl(brand, componentType))
   }
+  // light //todo move to light service
+  deviceSetColor(deviceId:string,colorToSet:string): Observable<any>{
+    let url = this.apiUrlUtilityService.getPutDeviceSetColorUrl(deviceId)
+    let matches = colorToSet.match(/\d+/g);
+    let body:string=''
+    if(matches){
+      body = matches[0]+','+matches[1]+','+matches[2];
+    }
+    return this.http.put(url, body)
+  }
+
 }

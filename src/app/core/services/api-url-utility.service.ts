@@ -10,6 +10,7 @@ export class ApiUrlUtilityService {
   getGetDevicesUrlIsMock=false;
   getGetDeviceActionUrlIsMock=true;
   getGetDeviceComponentActionIsMock=true;
+  getPutDeviceSetColorUrlIsMock=false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -31,7 +32,7 @@ export class ApiUrlUtilityService {
   getGetDeviceActionUrl(brand:string){
     let url:string;
     let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
-    url = baseUrl + '/device/action/brand/'+brand+'/';
+    url = baseUrl + '/devices/action/brand/'+brand+'/';
     if(this.getUserUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
@@ -39,7 +40,15 @@ export class ApiUrlUtilityService {
   getGetDeviceComponentActionUrl(brand:string,componentType:ComponentTypeEnum){
     let url:string;
     let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
-    url = baseUrl + '/device/action/brand/'+brand+'/'+'component/'+componentType+'/';
+    url = baseUrl + '/devices/action/brand/'+brand+'/'+'component/'+componentType+'/';
+    if(this.getUserUrlIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
+  getPutDeviceSetColorUrl(deviceId:string){
+    let url:string;
+    let baseUrl=this.getPutDeviceSetColorUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/devices/'+deviceId+'/set/color';
     if(this.getUserUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
