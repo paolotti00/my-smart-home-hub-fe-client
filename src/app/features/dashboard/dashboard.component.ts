@@ -17,11 +17,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.initService.getSharedObject().subscribe(result => {
-      console.log("test")
       if(result.isInitialized){
         this.sharedObject = result;
         this.deviceService.getUserDevices(this.sharedObject.currentUser.id).subscribe(result => {
-          this.devices = result;
+          this.devices = result.data;
         })
       }
     })

@@ -5,7 +5,8 @@ import {Observable} from "rxjs";
 import {DeviceActionModel} from "../models/deviceAction.model";
 import {ComponentTypeEnum} from "../enums/componentType.enum";
 import {ComponentModel} from "../models/component.model";
-import {deviceRoutesName} from "../constants/routes.names.constant";
+import {BaseResponseDto} from "../models/baseResponseDto.model";
+import {DeviceModel} from "../models/device.model";
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,8 @@ export class DeviceService {
   }
 
   // server calls
-  getUserDevices(idUser: string): Observable<any> {
-    return this.http.get<any>(this.apiUrlUtilityService.getGetDevicesUrl(idUser))
+  getUserDevices(idUser: string): Observable<BaseResponseDto<DeviceModel[]>> {
+    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetDevicesUrl(idUser))
   }
 
   getDeviceAction(brand: string): Observable<DeviceActionModel[]> {

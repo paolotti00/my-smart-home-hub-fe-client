@@ -7,6 +7,7 @@ import {ComponentTypeEnum} from "../enums/componentType.enum";
 })
 export class ApiUrlUtilityService {
   getUserUrlIsMock=true;
+  getGetDevicesUrlIsMock=false;
   getGetDeviceActionUrlIsMock=true;
   getGetDeviceComponentActionIsMock=true;
 
@@ -21,9 +22,9 @@ export class ApiUrlUtilityService {
   }
   getGetDevicesUrl(idUser:string){
     let url:string;
-    let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=this.getGetDevicesUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/users/'+idUser+'/devices/';
-    if(this.getUserUrlIsMock){
+    if(this.getGetDevicesUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
