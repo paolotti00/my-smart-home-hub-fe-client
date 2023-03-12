@@ -3,6 +3,8 @@ import {ComponentModel} from "../../../../core/models/component.model";
 import {InitService} from "../../../../core/services/init.service";
 import {DeviceService} from "../../../../core/services/device.service";
 import {ActivatedRoute} from "@angular/router";
+import {DeviceModel} from "../../../../core/models/device.model";
+import {ViewDataSharingService} from "../../../../core/services/view.data.sharing.service";
 
 @Component({
   selector: 'app-device-component-detail.page',
@@ -11,9 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DeviceComponentLightDetailPageComponent implements OnInit {
   @Input()
-  brand?: string;
-  @Input()
-  deviceComponent: ComponentModel = {} as ComponentModel;
+  device: DeviceModel = {} as DeviceModel
   // from routing
   deviceId: string ="";
   deviceComponentId:string="";
@@ -27,24 +27,14 @@ export class DeviceComponentLightDetailPageComponent implements OnInit {
   TAB_COLOR = 3
   activeTab = this.TAB_ACTION
 
-  constructor(private initService: InitService, private deviceService: DeviceService,private route: ActivatedRoute) {
+  constructor(private initService: InitService, private deviceService: DeviceService, private viewDataSharingService: ViewDataSharingService) {
   }
 
   ngOnInit(): void {
-    // device id on parent
-    this.route.parent?.params.subscribe(params => {
-      this.deviceId = params[this.PARAM_ID_NAME];
-      if(this.deviceId==""){
-        console.warn("param " + this.PARAM_ID_NAME + "not found on " + this.route.toString())
-      }
-    });
-    // component id on child
-    this.route.params.subscribe(params => {
-      this.deviceComponentId = params[this.PARAM_ID_NAME]
-      if(this.deviceComponentId==""){
-        console.warn("param " + this.PARAM_ID_NAME + "not found on " + this.route.toString())
-      }
-    })
+    this.device=this.viewDataSharingService.getCurrentDevice()
+    if(!this.device){
+      console.warn("todo - get device from server - DeviceComponentLightDetailPageComponent")
+    }
   }
 
   // tabs functions

@@ -14,7 +14,7 @@ export class DeviceMainPageComponent {
   ngOnInit(): void {
     this.device=this.viewDataSharingService.getCurrentDevice()
     if(!this.device){
-      // todo get from server by id
+      console.warn("todo - get device from server - DeviceMainPageComponent")
     }
   }
 }

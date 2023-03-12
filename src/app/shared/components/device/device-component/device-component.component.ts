@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ComponentModel} from "../../../../core/models/component.model";
 import {Router} from "@angular/router";
 import {ColorRgbModel} from "../../../../core/models/colorRgb.model";
@@ -21,6 +21,9 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
   deviceComponent = {} as ComponentModel
   @Input()
   deviceId = ""
+  @Output()
+  clickedOnComponentDetail = new EventEmitter();
+
   iconColor: ColorRgbModel = {r: 1, g: 1, b: 2};
   icon: IconDefinition = this.iconsService.getComponentIconByType(ComponentTypeEnum.MIX) // default
   value = "";
@@ -53,6 +56,7 @@ export class DeviceComponentComponent implements OnInit, OnChanges {
   }
 
   goToDetail(){
+    this.clickedOnComponentDetail.emit()
     let routeTarget = this.routeCustomService.getRouteToComponentDetail(this.deviceComponent.type,this.deviceId,this.deviceComponent.id)
     if(routeTarget){
       this.router.navigate([routeTarget])

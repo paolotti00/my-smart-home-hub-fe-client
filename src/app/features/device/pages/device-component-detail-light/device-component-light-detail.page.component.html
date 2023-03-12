@@ -1,16 +1,16 @@
 <app-name [name]="'light component'"></app-name>
 <div class="tabs justify-center">
-  <a class="tab" (click)="setActiveTab(TAB_ACTION)">Defaults</a>
+  <a class="tab" (click)="setActiveTab(TAB_ACTION)">Action</a>
   <a class="tab" (click)="setActiveTab(TAB_WHITE)">White</a>
   <a class="tab" (click)="setActiveTab(TAB_COLOR)">Color</a>
 </div>
 <div class="divider mt-0"></div>
 <div *ngIf="activeTab==TAB_ACTION" class="container">
-  <app-device-component-light-action [brand]="brand" [componentType]="deviceComponent.type"></app-device-component-light-action>
+  <app-device-component-light-action [deviceId]="device.id" [actionList]="device.supportedActions"></app-device-component-light-action>
 </div>
 <div *ngIf="activeTab==TAB_WHITE" class="container">
   test 2
 </div>
 <div *ngIf="activeTab==TAB_COLOR" class="container">
-  <app-device-component-light-color></app-device-component-light-color>
+  <app-device-component-light-color [deviceId]="device.id"></app-device-component-light-color>
 </div>

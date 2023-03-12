@@ -50,7 +50,7 @@
       "usersOwnersIds": ["63713f514f9fe426d18ea904"]
     }
   ],
-  "deviceAction_paolotti": [
+  "devicesAction_paolotti": [
     {
       "id": "crazy",
       "label": "crazy",
@@ -63,7 +63,7 @@
     }
 
   ],
-  "deviceActionComponent_light_paolotti": [
+  "devicesActionComponent_light_paolotti": [
     {
       "id": "crazy",
       "label": "crazy",

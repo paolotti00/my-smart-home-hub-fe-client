@@ -2,6 +2,7 @@ import {NetworkDataModel} from "./networkData.model";
 import {ComponentModel} from "./component.model";
 import {InstallationStatusEnum} from "../enums/installationStatus.enum";
 import {OnlineStatusEnum} from "../enums/onlineStatus.enum";
+import {ActionModel} from "./action.model";
 
 export interface DeviceModel {
   id:string;
@@ -17,5 +18,6 @@ export interface DeviceModel {
   installationStatus:InstallationStatusEnum;
   networkData:NetworkDataModel;
   status:OnlineStatusEnum;
+  supportedActions: ActionModel[];
 
 }

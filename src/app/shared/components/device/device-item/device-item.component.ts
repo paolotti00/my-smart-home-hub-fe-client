@@ -37,4 +37,7 @@ export class DeviceItemComponent {
       console.warn("routeTarget is undefined")
     }
   }
+  setDeviceInSharedData(){
+    this.viewDataSharingService.setCurrentDevice(this.device)
+  }
 }

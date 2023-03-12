@@ -11,6 +11,7 @@ export class ApiUrlUtilityService {
   getGetDeviceActionUrlIsMock=true;
   getGetDeviceComponentActionIsMock=true;
   getPutDeviceSetColorUrlIsMock=false;
+  getPutDeviceDoActionIsMock=false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -31,17 +32,17 @@ export class ApiUrlUtilityService {
   }
   getGetDeviceActionUrl(brand:string){
     let url:string;
-    let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=this.getGetDeviceActionUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/action/brand/'+brand+'/';
-    if(this.getUserUrlIsMock){
+    if(this.getGetDeviceActionUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
   getGetDeviceComponentActionUrl(brand:string,componentType:ComponentTypeEnum){
     let url:string;
-    let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=this.getGetDeviceComponentActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/action/brand/'+brand+'/'+'component/'+componentType+'/';
-    if(this.getUserUrlIsMock){
+    if(this.getGetDeviceComponentActionIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
@@ -49,7 +50,16 @@ export class ApiUrlUtilityService {
     let url:string;
     let baseUrl=this.getPutDeviceSetColorUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/'+deviceId+'/set/color';
-    if(this.getUserUrlIsMock){
+    if(this.getPutDeviceSetColorUrlIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
+
+  getPutDeviceDoAction(deviceId: string) {
+    let url:string;
+    let baseUrl=this.getPutDeviceDoActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/devices/'+deviceId+'/do/action';
+    if(this.getPutDeviceDoActionIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }

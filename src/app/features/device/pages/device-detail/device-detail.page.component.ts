@@ -8,13 +8,13 @@ import {ViewDataSharingService} from "../../../../core/services/view.data.sharin
   styleUrls: ['./device-detail.page.component.scss']
 })
 export class DeviceDetailPageComponent implements OnInit{
-  device!: DeviceModel
+  device: DeviceModel = {} as DeviceModel
   constructor(private viewDataSharingService:ViewDataSharingService) {}
 
   ngOnInit(): void {
     this.device=this.viewDataSharingService.getCurrentDevice()
     if(!this.device){
-      // todo get from server by id
+      console.warn("todo - get device from server - DeviceDetailPageComponent")
     }
   }
 }

@@ -3,7 +3,7 @@
   <div [ngClass]="{'grid gap-1 mt-2':!inListMode}">
     <div [ngClass]="{'grid grid-cols-2 grid-rows-2 gap-1':colSpan>1}">
       <div *ngFor="let deviceComponent of device.components">
-        <app-device-component [deviceComponent]="deviceComponent" [deviceId]="device.id"></app-device-component>
+        <app-device-component (clickedOnComponentDetail)="setDeviceInSharedData()" [deviceComponent]="deviceComponent" [deviceId]="device.id"></app-device-component>
       </div>
     </div>
   </div>

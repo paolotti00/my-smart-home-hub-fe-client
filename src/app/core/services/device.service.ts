@@ -7,6 +7,7 @@ import {ComponentTypeEnum} from "../enums/componentType.enum";
 import {ComponentModel} from "../models/component.model";
 import {BaseResponseDto} from "../models/baseResponseDto.model";
 import {DeviceModel} from "../models/device.model";
+import {ActionModel} from "../models/action.model";
 
 @Injectable({
   providedIn: 'root'
@@ -42,13 +43,11 @@ export class DeviceService {
   getUserDevices(idUser: string): Observable<BaseResponseDto<DeviceModel[]>> {
     return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetDevicesUrl(idUser))
   }
-
-  getDeviceAction(brand: string): Observable<DeviceActionModel[]> {
-    return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceActionUrl(brand))
-  }
-
-  getDeviceComponentAction(brand: string, componentType: ComponentTypeEnum): Observable<DeviceActionModel[]> {
-    return this.http.get<any>(this.apiUrlUtilityService.getGetDeviceComponentActionUrl(brand, componentType))
+  // call action on device
+  deviceDoAction(deviceId: string, deviceAction:ActionModel) : Observable<any>{
+    let url = this.apiUrlUtilityService.getPutDeviceDoAction(deviceId);
+    let body = deviceAction
+    return this.http.put(url,deviceAction)
   }
   // light //todo move to light service
   deviceSetColor(deviceId:string,colorToSet:string): Observable<any>{

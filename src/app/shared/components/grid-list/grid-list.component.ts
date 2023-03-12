@@ -10,11 +10,11 @@ export class GridListComponent {
   @Input()
   items?:GridListItemInputModel[]
   @Output()
-  idOnClickEvent = new EventEmitter<string>;
+  idOnClickEvent = new EventEmitter<number>;
   selectedItem=-1
 
   clickOnItem(itemId:string,arrayIndex:number){
     this.selectedItem = arrayIndex;
-    this.idOnClickEvent.emit(itemId)
+    this.idOnClickEvent.emit(Number(itemId))
   }
 }

@@ -4,6 +4,8 @@ import {DeviceActionModel} from "../../../../core/models/deviceAction.model";
 import {DeviceService} from "../../../../core/services/device.service";
 import {IconsService} from "../../../../core/services/icons.service";
 import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
+import {ActionModel} from "../../../../core/models/action.model";
+import {EffectDataModel} from "../../../../core/models/effectData.model";
 
 @Component({
   selector: 'app-device-component-light-action',
@@ -12,9 +14,9 @@ import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
 })
 export class DeviceComponentLightActionComponent implements OnInit {
   @Input()
-  brand?: string;
+  deviceId:string = ""
   @Input()
-  componentType?: ComponentTypeEnum;
+  actionList: ActionModel[] = [];
   gridListItemInputList: GridListItemInputModel[] = []
   // to get from server
   deviceComponentActionList?: DeviceActionModel[];
@@ -22,22 +24,29 @@ export class DeviceComponentLightActionComponent implements OnInit {
   }
 
 
-  callAction(actionId: string) {
-    console.log("CALLING " + actionId);
+  callAction(actionIndex: number) {
+    let action: ActionModel = {} as ActionModel;
+    let effectData: EffectDataModel = {} as EffectDataModel;
+    effectData.wait = "0.01";
+    effectData.rgbColors = [];
+    effectData.rgbColors.push("204, 51, 255");
+    effectData.rgbColors.push("255, 80, 80");
+    action.name = this.actionList[actionIndex].name;
+    action.effect_data = effectData;
+    console.warn("todo - effect data is stubbed")
+    this.deviceService.deviceDoAction(this.deviceId,action).subscribe(result => {
+      console.log("called action : " + action);
+    })
   }
 
   ngOnInit(): void {
-    this.deviceService.getDeviceComponentAction(this.brand!, this.componentType!).subscribe(result => {
-      this.deviceComponentActionList = result;
-      // fill gridListItemInput
-      this.deviceComponentActionList.forEach(deviceComponentAction => {
-        let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
-        gridListItemInput.icon = this.iconService.getLightComponentActionIcon(deviceComponentAction.id);
-        gridListItemInput.label = deviceComponentAction.label;
-        gridListItemInput.description = deviceComponentAction.description;
-        gridListItemInput.id = deviceComponentAction.id;
-        this.gridListItemInputList.push(gridListItemInput);
-      })
+    this.actionList?.forEach((action, index) => {
+      let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
+      gridListItemInput.icon = this.iconService.getLightComponentActionIcon(action.name);
+      gridListItemInput.label = action.name;
+      gridListItemInput.id = String(index)
+      gridListItemInput.description = "description lorem ipsum todo";
+      this.gridListItemInputList.push(gridListItemInput);
 
     })
   }

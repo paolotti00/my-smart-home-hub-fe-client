@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {DeviceService} from "../../../../core/services/device.service";
 
 @Component({
@@ -7,10 +7,12 @@ import {DeviceService} from "../../../../core/services/device.service";
   styleUrls: ['./device-component-light-color.component.scss']
 })
 export class DeviceComponentLightColorComponent {
+  @Input()
+  deviceId: string = ""
   constructor(private deviceService: DeviceService) {
   }
   onColorChanged(color: string) { //todo get the id
-    this.deviceService.deviceSetColor('63f942f9084ffe764b6003e2',color).subscribe(response=>{
+    this.deviceService.deviceSetColor(this.deviceId,color).subscribe(response=>{
       console.log('Color set successfully:', response);
     },error => {
       console.error('Error setting color:', error);
