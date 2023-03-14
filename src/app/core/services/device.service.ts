@@ -8,13 +8,14 @@ import {ComponentModel} from "../models/component.model";
 import {BaseResponseDto} from "../models/baseResponseDto.model";
 import {DeviceModel} from "../models/device.model";
 import {ActionModel} from "../models/action.model";
+import {WebSocketService} from "./websocket.service.ts.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceService {
 
-  constructor(private apiUrlUtilityService: ApiUrlUtilityService, private http: HttpClient) {
+  constructor(private apiUrlUtilityService: ApiUrlUtilityService, private http: HttpClient, private webSocketService: WebSocketService) {
   }
 
   // add case in case of new component type
@@ -58,6 +59,11 @@ export class DeviceService {
       body = matches[0]+','+matches[1]+','+matches[2];
     }
     return this.http.put(url, body)
+  }
+  // web socket
+  getStatusUpdateFromWbSocket(deviceId: string): Observable<any>{
+    let topic = this.apiUrlUtilityService.getWebSocketUpdateStatusTopicUrl(deviceId)
+    return this.webSocketService.connect(topic)
   }
 
 }

@@ -12,6 +12,7 @@ export class ApiUrlUtilityService {
   getGetDeviceComponentActionIsMock=true;
   getPutDeviceSetColorUrlIsMock=false;
   getPutDeviceDoActionIsMock=false;
+  getWebSocketUpdateStatusTopicUrlIsMock=false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -62,5 +63,13 @@ export class ApiUrlUtilityService {
     if(this.getPutDeviceDoActionIsMock){
       console.warn(url+" is a mock!");
     } return url;
+  }
+
+
+  // web socket
+  getWebSocketUpdateStatusTopicUrl(deviceId: string){
+    let url:string;
+    url = '/devices/status/'+deviceId;
+    return url;
   }
 }
