@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev-lite-server": "lite-server --baseDir=dist/my-smart-home",
-    "start-mock-server": "json-server --port 3001 --watch mocks/mocks.json --routes mocks/routes.json"
+    "start-mock-server": "json-server --host 192.168.50.170 --port 3001 --watch mocks/mocks.json --routes mocks/routes.json"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,8 @@
     "daisyui": "^2.6.0",
     "ngx-color-picker": "^14.0.0",
     "rxjs": "~7.5.0",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

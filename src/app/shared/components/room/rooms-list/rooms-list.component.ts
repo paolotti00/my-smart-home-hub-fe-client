@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {faKitchenSet, faDoorClosed  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-rooms-list',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./rooms-list.component.scss']
 })
 export class RoomsListComponent {
+  faKitchenSet=faKitchenSet;
+  faBed=faDoorClosed ;
 
 }

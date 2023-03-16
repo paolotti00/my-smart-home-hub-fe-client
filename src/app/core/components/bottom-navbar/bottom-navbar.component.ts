@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import {defaultRoutesNames} from "../../constants/routes.names.constant";
 import {Router} from "@angular/router";
 
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class BottomNavbarComponent {
   constructor(private router: Router) {
   }
-  faCoffee = faCoffee;
+  faHouse = faHouse;
   goHome(){
     this.router.navigate([defaultRoutesNames.HOME])
   }

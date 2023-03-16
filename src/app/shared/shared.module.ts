@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RoomsListComponent} from './components/room/rooms-list/rooms-list.component';
-import {RoomItemComponent} from './components/room/room-item/room-item.component';
+import {CardCompactWithIconAndTextComponent} from './components/card-compact-with-icon-and-text/card-compact-with-icon-and-text.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {DeviceItemComponent} from './components/device/device-item/device-item.component';
 import {DeviceComponentComponent} from './components/device/device-component/device-component.component';
@@ -14,7 +14,7 @@ import {ColorPickerComponent} from './components/color-picker/color-picker.compo
 @NgModule({
   declarations: [
     RoomsListComponent,
-    RoomItemComponent,
+    CardCompactWithIconAndTextComponent,
     DeviceItemComponent,
     DeviceComponentComponent,
     NameComponent,
