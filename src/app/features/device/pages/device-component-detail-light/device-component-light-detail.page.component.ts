@@ -31,7 +31,12 @@ export class DeviceComponentLightDetailPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.device=this.viewDataSharingService.getCurrentDevice()
+    this.viewDataSharingService.currentDevice.subscribe(result => {
+      this.device = result;
+    })
+    if(!this.device){
+      console.warn("todo - get device from server - DeviceDetailPageComponent")
+    }
     if(!this.device){
       console.warn("todo - get device from server - DeviceComponentLightDetailPageComponent")
     }

@@ -12,7 +12,9 @@ export class DeviceDetailPageComponent implements OnInit{
   constructor(private viewDataSharingService:ViewDataSharingService) {}
 
   ngOnInit(): void {
-    this.device=this.viewDataSharingService.getCurrentDevice()
+    this.viewDataSharingService.currentDevice.subscribe(result => {
+      this.device = result;
+    })
     if(!this.device){
       console.warn("todo - get device from server - DeviceDetailPageComponent")
     }

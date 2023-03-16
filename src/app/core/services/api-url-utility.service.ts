@@ -69,7 +69,7 @@ export class ApiUrlUtilityService {
   // web socket
   getWebSocketUpdateStatusTopicUrl(deviceId: string){
     let url:string;
-    url = '/devices/status/'+deviceId;
+    url = '/device/'+deviceId+'/status';
     return url;
   }
 }

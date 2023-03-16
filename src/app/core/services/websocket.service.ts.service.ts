@@ -14,11 +14,9 @@ export class WebSocketService {
 
   public connect(topic: string): Observable<string> {
     // creazione del client WebSocket
-    new Stomp.Client({
-      brokerURL: 'ws://localhost:8080/websocket', // TODO
-      connectHeaders: {
-        'Content-Type': 'application/json'
-      },
+    this.stompClient = new Stomp.Client({
+      brokerURL: 'ws://192.168.50.170:8080/websocket', // TODO
+
       debug: (str: string) => {
         console.log(str);
       }
@@ -28,11 +26,11 @@ export class WebSocketService {
     return new Observable<string>((observer) => {
       this.stompClient.onConnect = (frame) => {
         // iscrizione al topic
-        this.subscription = this.stompClient.subscribe(`/topic/${topic}`, (message) => {
+        this.subscription = this.stompClient.subscribe("/topic"+topic, (message) => {
+          console.log("received by websocket " + message.body )
           observer.next(JSON.parse(message.body));
         });
       };
-
       this.stompClient.activate();
     });
   }
