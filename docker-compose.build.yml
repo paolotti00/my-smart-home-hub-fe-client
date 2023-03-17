@@ -1,0 +1,7 @@
+version: '2'
+services:
+  ourday:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: paolotti/iot/mysmarthommy/client

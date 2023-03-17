@@ -1,5 +1,4 @@
 export const environment = {
-  production: true,
-  SERVER_API_URL:"",
-  SERVER_MOCKS_API_URL:""
+  production: false,
+  SERVER_API_URL:"http://raspberrypi.local:8080"
 };
