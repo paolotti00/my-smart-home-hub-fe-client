@@ -3,6 +3,7 @@ import {DeviceModel} from "../../../../core/models/device.model";
 import {RouteCustomService} from "../../../../core/services/route.custom.service";
 import {Router} from "@angular/router";
 import {ViewDataSharingService} from "../../../../core/services/view.data.sharing.service";
+import {OnlineStatusEnum} from "../../../../core/enums/onlineStatus.enum";
 
 @Component({
   selector: 'app-device-item',
@@ -16,6 +17,7 @@ export class DeviceItemComponent {
   device = {} as DeviceModel
   @Input()
   colSpan: number = 1
+  OnlineStatusEnum = OnlineStatusEnum;
 
   @HostBinding('class')
   public get getClasses(): string {

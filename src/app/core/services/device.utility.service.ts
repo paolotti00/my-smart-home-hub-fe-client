@@ -14,6 +14,10 @@ export class DeviceUtilityService {
   getColorWholeDevice(leds:any): LedModel| undefined{
     //todo leds["-1"] should be leds.get(-1) as a map , and leds:any should be leds: Map<number, LedModel>.
     // but in this case i have . get is not defined like if leds is considered a generic object and not a map
-    return leds["-1"]
+    let toReturn = null;
+    if (leds){
+      toReturn = leds["-1"]
+    }
+    return toReturn
   }
 }
