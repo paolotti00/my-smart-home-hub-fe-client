@@ -32,3 +32,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## per fare la push sul docker registry
+
+`docker tag paolotti/iot/mysmarthommy/client:latest 192.168.1.135:5000/paolotti/iot/mysmarthommy/client:latest && docker push 192.168.1.135:5000/paolotti/iot/mysmarthommy/clientclient:latest`

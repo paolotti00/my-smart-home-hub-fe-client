@@ -1,7 +1,8 @@
 version: '2'
 services:
-  ourday:
+  mysmarthommy:
     build:
       context: .
       dockerfile: ./Dockerfile
     image: paolotti/iot/mysmarthommy/client
+# push `docker tag paolotti/iot/mysmarthommy/client:latest 192.168.50.32:5000/paolotti/iot/mysmarthommy/client:latest && docker push 192.168.50.32:5000/paolotti/iot/mysmarthommy/client:latest`
