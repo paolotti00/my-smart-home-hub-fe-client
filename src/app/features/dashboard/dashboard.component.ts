@@ -11,6 +11,7 @@ import {SharedObjectModel} from "../../core/models/sharedObject.model";
 })
 export class DashboardComponent implements OnInit {
   devices: DeviceModel[] = [];
+  userId: string = ""
   sharedObject:SharedObjectModel = {} as SharedObjectModel;
   constructor(private initService: InitService, private deviceService: DeviceService) {
   }
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
     this.initService.getSharedObject().subscribe(result => {
       if(result.isInitialized){
         this.sharedObject = result;
+        this.userId = this.sharedObject.currentUser.id;
         this.deviceService.getUserDevices(this.sharedObject.currentUser.id).subscribe(result => {
           this.devices = result.data;
         })

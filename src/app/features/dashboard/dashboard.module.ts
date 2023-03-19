@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import {RouterModule} from "@angular/router";
 import {dashboardRoutingModule} from "./dashboard.routing.module";
 import {SharedModule} from "../../shared/shared.module";
+import {RoomModule} from "../room/room.module";
 
 
 
@@ -14,6 +15,7 @@ import {SharedModule} from "../../shared/shared.module";
   imports: [
     SharedModule,
     CommonModule,
+    RoomModule,
     RouterModule.forChild(dashboardRoutingModule)
   ]
 })

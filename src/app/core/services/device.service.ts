@@ -42,7 +42,10 @@ export class DeviceService {
 
   // server calls
   getUserDevices(idUser: string): Observable<BaseResponseDto<DeviceModel[]>> {
-    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetDevicesUrl(idUser))
+    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetUserDevicesUrl(idUser))
+  }
+  getRoomDevices(idUser: string): Observable<BaseResponseDto<DeviceModel[]>> {
+    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetUserDevicesUrl(idUser))
   }
   // call action on device
   deviceDoAction(deviceId: string, deviceAction:ActionModel) : Observable<any>{

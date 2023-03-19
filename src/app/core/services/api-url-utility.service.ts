@@ -13,6 +13,8 @@ export class ApiUrlUtilityService {
   getPutDeviceSetColorUrlIsMock=false;
   getPutDeviceDoActionIsMock=false;
   getWebSocketUpdateStatusTopicUrlIsMock=false;
+  getGetRoomDevicesUrlIsMock = false;
+  getGetUserRoomsUrlIsMock = false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -23,11 +25,27 @@ export class ApiUrlUtilityService {
       console.warn(url+" is a mock!");
     } return url;
   }
-  getGetDevicesUrl(idUser:string){
+  getGetUserDevicesUrl(idUser:string){
     let url:string;
     let baseUrl=this.getGetDevicesUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/users/'+idUser+'/devices/';
     if(this.getGetDevicesUrlIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
+  getGetUserRoomsUrl(idUser:string){
+    let url:string;
+    let baseUrl=this.getGetUserRoomsUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/users/'+idUser+'/rooms/';
+    if(this.getGetUserRoomsUrlIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
+  getGetRoomDevicesUrl(idUser:string){
+    let url:string;
+    let baseUrl=this.getGetRoomDevicesUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/rooms/'+idUser+'/devices/';
+    if(this.getGetRoomDevicesUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
