@@ -45,7 +45,7 @@ export class DeviceService {
     return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetUserDevicesUrl(idUser))
   }
   getRoomDevices(idUser: string): Observable<BaseResponseDto<DeviceModel[]>> {
-    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetUserDevicesUrl(idUser))
+    return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetRoomDevicesUrl(idUser))
   }
   // call action on device
   deviceDoAction(deviceId: string, deviceAction:ActionModel) : Observable<any>{

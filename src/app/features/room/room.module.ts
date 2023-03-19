@@ -12,7 +12,8 @@ import {SharedModule} from "../../shared/shared.module";
     RoomDetailComponent
   ],
   exports: [
-    RoomsListComponent
+    RoomsListComponent,
+    RoomDetailComponent
   ],
   imports: [
     CommonModule,

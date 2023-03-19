@@ -12,4 +12,6 @@ export class CardCompactWithIconAndTextComponent {
   text: string =""
   @Input()
   icon : IconDefinition = {} as IconDefinition
+  @Input()
+  isSelected: boolean = false;
 }

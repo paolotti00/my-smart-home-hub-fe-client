@@ -11,20 +11,24 @@ import {SharedObjectModel} from "../../core/models/sharedObject.model";
 })
 export class DashboardComponent implements OnInit {
   devices: DeviceModel[] = [];
-  userId: string = ""
-  sharedObject:SharedObjectModel = {} as SharedObjectModel;
+  userId: string = "";
+  roomId: string = "";
+  sharedObject: SharedObjectModel = {} as SharedObjectModel;
+
   constructor(private initService: InitService, private deviceService: DeviceService) {
   }
 
   ngOnInit(): void {
     this.initService.getSharedObject().subscribe(result => {
-      if(result.isInitialized){
+      if (result.isInitialized) {
         this.sharedObject = result;
         this.userId = this.sharedObject.currentUser.id;
-        this.deviceService.getUserDevices(this.sharedObject.currentUser.id).subscribe(result => {
-          this.devices = result.data;
-        })
       }
     })
+  }
+
+  onRoomSelected(roomId: string) {
+    console.log(roomId)
+    this.roomId = roomId;
   }
 }
