@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import {dashboardRoutingModule} from "./dashboard.routing.module";
 import {SharedModule} from "../../shared/shared.module";
 import {RoomModule} from "../room/room.module";
+import {DeviceModule} from "../device/device.module";
 
 
 
@@ -16,6 +17,7 @@ import {RoomModule} from "../room/room.module";
     SharedModule,
     CommonModule,
     RoomModule,
+    DeviceModule,
     RouterModule.forChild(dashboardRoutingModule)
   ]
 })

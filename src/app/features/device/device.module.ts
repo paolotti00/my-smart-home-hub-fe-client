@@ -10,6 +10,9 @@ import {DeviceMainPageComponent} from "./pages/device/device.main.page.component
 import {
   DeviceComponentLightColorComponent
 } from "./components/device-component-light-color/device-component-light-color.component";
+import {DeviceComponentComponent} from "./components/device-component/device-component.component";
+import {DeviceItemComponent} from "./components/device-item/device-item.component";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
@@ -18,13 +21,19 @@ import {
     DeviceMainPageComponent,
     DeviceComponentLightDetailPageComponent,
     DeviceDetailPageComponent,
+    DeviceComponentComponent,
+    DeviceItemComponent,
     DeviceComponentLightActionComponent,
     DeviceComponentLightColorComponent
+  ],
+  exports:[
+    DeviceItemComponent
   ],
     imports: [
         RouterModule.forChild(deviceRoutingModule),
         SharedModule,
-        CommonModule
+        CommonModule,
+        FontAwesomeModule
     ]
 })
 export class DeviceModule { }

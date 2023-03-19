@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 import { RoomDetailComponent } from './components/room-detail/room-detail.component';
 import {SharedModule} from "../../shared/shared.module";
+import {DeviceModule} from "../device/device.module";
 
 
 
@@ -17,7 +18,8 @@ import {SharedModule} from "../../shared/shared.module";
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    DeviceModule
   ]
 })
 export class RoomModule { }

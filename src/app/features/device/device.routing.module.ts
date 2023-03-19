@@ -8,7 +8,7 @@ import {DeviceMainPageComponent} from "./pages/device/device.main.page.component
 
 export const deviceRoutingModule: Routes = [
   {
-    path: "",
+    path: deviceRoutesName.DEVICE_BASE_URL,
     component: DeviceMainPageComponent,
     children: [
       {
