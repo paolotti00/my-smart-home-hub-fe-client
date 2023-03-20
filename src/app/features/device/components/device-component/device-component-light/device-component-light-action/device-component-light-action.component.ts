@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {GridListItemInputModel} from "../../../../core/models/gridListItemInput.model";
-import {DeviceActionModel} from "../../../../core/models/deviceAction.model";
-import {DeviceService} from "../../../../core/services/device.service";
-import {IconsService} from "../../../../core/services/icons.service";
-import {ComponentTypeEnum} from "../../../../core/enums/componentType.enum";
-import {ActionModel} from "../../../../core/models/action.model";
-import {EffectDataModel} from "../../../../core/models/effectData.model";
+import {GridListItemInputModel} from "../../../../../../core/models/gridListItemInput.model";
+import {DeviceActionModel} from "../../../../../../core/models/deviceAction.model";
+import {DeviceService} from "../../../../../../core/services/device.service";
+import {IconsService} from "../../../../../../core/services/icons.service";
+import {ComponentTypeEnum} from "../../../../../../core/enums/componentType.enum";
+import {ActionModel} from "../../../../../../core/models/action.model";
+import {EffectDataModel} from "../../../../../../core/models/effectData.model";
 
 @Component({
   selector: 'app-device-component-light-action',

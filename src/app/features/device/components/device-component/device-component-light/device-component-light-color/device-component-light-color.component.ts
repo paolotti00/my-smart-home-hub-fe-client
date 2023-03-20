@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {DeviceService} from "../../../../core/services/device.service";
+import {DeviceService} from "../../../../../../core/services/device.service";
 
 @Component({
   selector: 'app-device-component-light-color',
