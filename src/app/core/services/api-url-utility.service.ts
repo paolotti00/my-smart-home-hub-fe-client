@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {serverConstants} from "../constants/server.constants";
 import {ComponentTypeEnum} from "../enums/componentType.enum";
+import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class ApiUrlUtilityService {
   getWebSocketUpdateStatusTopicUrlIsMock=false;
   getGetRoomDevicesUrlIsMock = false;
   getGetUserRoomsUrlIsMock = false;
+  getPutDeviceSwitchLightIsMock = false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -89,5 +91,14 @@ export class ApiUrlUtilityService {
     let url:string;
     url = '/device/'+deviceId+'/status';
     return url;
+  }
+
+  getPutDeviceSwitchLight(deviceId: string, onOffStatusEnum: OnOffStatusEnum) {
+    let url:string;
+    let baseUrl=this.getPutDeviceSwitchLightIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/devices/'+deviceId+'/light/switch/'+onOffStatusEnum;
+    if(this.getPutDeviceSwitchLightIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
   }
 }

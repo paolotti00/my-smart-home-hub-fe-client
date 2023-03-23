@@ -57,11 +57,18 @@ export class DeviceComponentLightComponent {
   }
   onClickedOnToggleOnOff(){
     // todo call service to switch on of light
+
     console.log("todo call service to switch on of light")
+    let deviceStatusToSet : OnOffStatusEnum
     if(this.deviceComponent.status==OnOffStatusEnum.ON){
+      deviceStatusToSet = OnOffStatusEnum.OFF;
       this.deviceComponent.status=OnOffStatusEnum.OFF;
     } else {
-      this.deviceComponent.status=OnOffStatusEnum.ON;
+      deviceStatusToSet = OnOffStatusEnum.ON;
     }
+    this.deviceService.deviceLightSwitch(this.deviceId,deviceStatusToSet).subscribe(result=>{
+      this.deviceComponent.status=deviceStatusToSet;
+    })
+
   }
 }

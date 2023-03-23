@@ -9,6 +9,8 @@ import {BaseResponseDto} from "../models/baseResponseDto.model";
 import {DeviceModel} from "../models/device.model";
 import {ActionModel} from "../models/action.model";
 import {WebSocketService} from "./websocket.service.ts.service";
+import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
+import {SwitchOnOffStatusModel} from "../models/switchOnOffStatusModel";
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +64,11 @@ export class DeviceService {
       body = matches[0]+','+matches[1]+','+matches[2];
     }
     return this.http.put(url, body)
+  }
+  // light switchOnOff
+  deviceLightSwitch(deviceId: string, onOffStatusEnum:OnOffStatusEnum) : Observable<any>{
+    let url = this.apiUrlUtilityService.getPutDeviceSwitchLight(deviceId,onOffStatusEnum);
+    return this.http.put(url,undefined)
   }
   // web socket
   getStatusUpdateFromWebSocket(deviceId: string): Observable<any>{
