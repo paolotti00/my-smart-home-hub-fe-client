@@ -13,7 +13,7 @@ export class WebSocketService {
   constructor() { }
 
   public connect(topic: string): Observable<string> {
-    // creazione del client WebSocket
+    // WebSocket creation
     this.stompClient = new Stomp.Client({
       brokerURL: 'ws://192.168.50.170:8080/websocket', // TODO
 
@@ -22,10 +22,10 @@ export class WebSocketService {
       }
     });
 
-    // connessione al server WebSocket
+    // WebSocket connection
     return new Observable<string>((observer) => {
       this.stompClient.onConnect = (frame) => {
-        // iscrizione al topic
+        // WebSocket subscribing
         this.subscription = this.stompClient.subscribe("/topic"+topic, (message) => {
           console.log("received by websocket " + message.body )
           observer.next(JSON.parse(message.body));

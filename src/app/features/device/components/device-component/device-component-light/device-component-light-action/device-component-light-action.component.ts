@@ -4,7 +4,7 @@ import {DeviceActionModel} from "../../../../../../core/models/deviceAction.mode
 import {DeviceService} from "../../../../../../core/services/device.service";
 import {IconsService} from "../../../../../../core/services/icons.service";
 import {ComponentTypeEnum} from "../../../../../../core/enums/componentType.enum";
-import {ActionModel} from "../../../../../../core/models/action.model";
+import {ExtraActionModel} from "../../../../../../core/models/extraAction.model";
 import {EffectDataModel} from "../../../../../../core/models/effectData.model";
 
 @Component({
@@ -16,7 +16,7 @@ export class DeviceComponentLightActionComponent implements OnInit {
   @Input()
   deviceId:string = ""
   @Input()
-  actionList: ActionModel[] = [];
+  actionList: ExtraActionModel[] = [];
   gridListItemInputList: GridListItemInputModel[] = []
   // to get from server
   deviceComponentActionList?: DeviceActionModel[];
@@ -25,7 +25,7 @@ export class DeviceComponentLightActionComponent implements OnInit {
 
 
   callAction(actionIndex: number) {
-    let action: ActionModel = {} as ActionModel;
+    let action: ExtraActionModel = {} as ExtraActionModel;
     let effectData: EffectDataModel = {} as EffectDataModel;
     effectData.wait = "0.01";
     effectData.rgbColors = [];

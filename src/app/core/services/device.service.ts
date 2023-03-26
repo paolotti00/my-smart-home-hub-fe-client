@@ -7,7 +7,7 @@ import {ComponentTypeEnum} from "../enums/componentType.enum";
 import {ComponentModel} from "../models/component.model";
 import {BaseResponseDto} from "../models/baseResponseDto.model";
 import {DeviceModel} from "../models/device.model";
-import {ActionModel} from "../models/action.model";
+import {ExtraActionModel} from "../models/extraAction.model";
 import {WebSocketService} from "./websocket.service.ts.service";
 import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
 import {SwitchOnOffStatusModel} from "../models/switchOnOffStatusModel";
@@ -50,7 +50,7 @@ export class DeviceService {
     return this.http.get<BaseResponseDto<DeviceModel[]>>(this.apiUrlUtilityService.getGetRoomDevicesUrl(idUser))
   }
   // call action on device
-  deviceDoAction(deviceId: string, deviceAction:ActionModel) : Observable<any>{
+  deviceDoAction(deviceId: string, deviceAction:ExtraActionModel) : Observable<any>{
     let url = this.apiUrlUtilityService.getPutDeviceDoAction(deviceId);
     let body = deviceAction
     return this.http.put(url,deviceAction)
