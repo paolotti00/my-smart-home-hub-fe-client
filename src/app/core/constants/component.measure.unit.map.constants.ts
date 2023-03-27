@@ -1,7 +1,7 @@
-import {ComponentTypeEnum} from "../enums/componentType.enum";
+import {SensorTypeEnum} from "../enums/sensorType.enum";
 
-export const ComponentMeasureUnitMapConstants: Map<ComponentTypeEnum, string> = new Map([
-  [ComponentTypeEnum.LIGHT, '%'],
-  [ComponentTypeEnum.SENSOR_TEMPERATURE, '°'],
-  [ComponentTypeEnum.MIX, ''], // default
+export const ComponentMeasureUnitMapConstants: Map<SensorTypeEnum, string> = new Map([
+  [SensorTypeEnum.LIGHT, '%'],
+  [SensorTypeEnum.TEMPERATURE, '°'],
+  [SensorTypeEnum.MIX, ''], // default
 ]);

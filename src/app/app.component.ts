@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     //todo understand from where this idUser has to be got. maybe this init app has to move after login
-    this.initService.initApp("63713f514f9fe426d18ea904"); //todo
+    this.initService.initApp("642210df5fa23064915fd973"); //todo
     // todo delete it when development is finished
     this.printpath('', this.router.config);
   }

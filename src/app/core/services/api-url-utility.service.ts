@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {serverConstants} from "../constants/server.constants";
-import {ComponentTypeEnum} from "../enums/componentType.enum";
+import {SensorTypeEnum} from "../enums/sensorType.enum";
 import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
 
 @Injectable({
@@ -59,7 +59,7 @@ export class ApiUrlUtilityService {
       console.warn(url+" is a mock!");
     } return url;
   }
-  getGetDeviceComponentActionUrl(brand:string,componentType:ComponentTypeEnum){
+  getGetDeviceComponentActionUrl(brand:string,componentType:SensorTypeEnum){
     let url:string;
     let baseUrl=this.getGetDeviceComponentActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/action/brand/'+brand+'/'+'component/'+componentType+'/';

@@ -21,7 +21,8 @@ export class ViewDataSharingService {
     // Subscribe to updates for this device using the WebSocket
     this.deviceService.getStatusUpdateFromWebSocket(value.id).subscribe(result => {
       // Update the current device with the new status from the WebSocket
-      value.components = result.components; // todo
+      value.sensors = result.sensors; // todo
+      value.leds = result.leds;
       this.currentDeviceSubject.next(value);
       console.log("todo - updated device " + result.id + "status from websocket")
     });

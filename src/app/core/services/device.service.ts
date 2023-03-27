@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {ApiUrlUtilityService} from "./api-url-utility.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {DeviceActionModel} from "../models/deviceAction.model";
-import {ComponentTypeEnum} from "../enums/componentType.enum";
-import {ComponentModel} from "../models/component.model";
+import {SensorTypeEnum} from "../enums/sensorType.enum";
 import {BaseResponseDto} from "../models/baseResponseDto.model";
 import {DeviceModel} from "../models/device.model";
 import {ExtraActionModel} from "../models/extraAction.model";
@@ -18,28 +16,6 @@ import {SwitchOnOffStatusModel} from "../models/switchOnOffStatusModel";
 export class DeviceService {
 
   constructor(private apiUrlUtilityService: ApiUrlUtilityService, private http: HttpClient, private webSocketService: WebSocketService) {
-  }
-
-  // add case in case of new component type
-  getComponentValue(deviceComponent: ComponentModel):string {
-    let value = ''
-    switch (deviceComponent.type) {
-      case ComponentTypeEnum.LIGHT:
-        value = "30 % todo"
-        break
-      case ComponentTypeEnum.MIX:
-        value = ''
-        break
-      case ComponentTypeEnum.SENSOR_TEMPERATURE:
-        value = "30  todo"
-        break
-      case ComponentTypeEnum.SENSOR_HUMIDITY:
-        value = value = "30  todo"
-        break
-      default:
-        console.warn("" + deviceComponent.type + " is not supported. define it.")
-    }
-    return value;
   }
 
   // server calls

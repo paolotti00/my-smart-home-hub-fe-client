@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ComponentModel} from "../../../../core/models/component.model";
 import {InitService} from "../../../../core/services/init.service";
 import {DeviceService} from "../../../../core/services/device.service";
 import {ActivatedRoute} from "@angular/router";

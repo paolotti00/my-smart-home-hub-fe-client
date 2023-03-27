@@ -1,6 +1,6 @@
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 import {faHeart, faLightbulb} from '@fortawesome/free-regular-svg-icons';
-import {ComponentTypeEnum} from "../enums/componentType.enum";
+import {SensorTypeEnum} from "../enums/sensorType.enum";
 import {
   faTemperatureFull,
   faMicrochip,
@@ -20,8 +20,8 @@ export const lightComponentActionIconsConstant: { [key: string]: IconDefinition 
   default: faLightbulb
 }
 
-export const ComponentIconsConstant: Map<ComponentTypeEnum, IconDefinition> = new Map([
-  [ComponentTypeEnum.LIGHT, faLightbulb],
-  [ComponentTypeEnum.SENSOR_TEMPERATURE, faTemperatureFull],
-  [ComponentTypeEnum.MIX, faMicrochip], // default
+export const ComponentIconsConstant: Map<SensorTypeEnum, IconDefinition> = new Map([
+  [SensorTypeEnum.LIGHT, faLightbulb],
+  [SensorTypeEnum.TEMPERATURE, faTemperatureFull],
+  [SensorTypeEnum.MIX, faMicrochip], // default
 ]);

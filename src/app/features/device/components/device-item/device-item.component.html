@@ -2,10 +2,11 @@
   <p (click)="goToDetail()" class="font-mono text-lg text-center font-semibold uppercase"> {{device.name}}</p>
   <div [ngClass]="{'grid gap-1 mt-2':!inListMode}">
     <div [ngClass]="{'grid grid-cols-2 grid-rows-2 gap-1':colSpan>1}">
-      <div *ngFor="let deviceComponent of device.components">
-        <app-device-component (clickedOnComponentDetail)="setDeviceInSharedData()" [deviceComponent]="deviceComponent" [deviceId]="device.id"></app-device-component>
+      <app-device-component-base (clickedOnSensorDetail)="setDeviceInSharedData()" *ngIf="device.leds"  [deviceId]="device.id" [leds]="device.leds" [showOnOffToggle]="true"></app-device-component-base>
+      <div *ngFor="let sensor of device.sensors">
+        <app-device-component-base *ngIf="sensor" [value]="sensor.value+sensor.unit" [deviceId]="device.id" [sensor]="sensor"></app-device-component-base>
       </div>
     </div>
   </div>
-  <span [class.bg-green-500]="device.status==OnlineStatusEnum.ONLINE" [class.bg-red-500]="device.status==OnlineStatusEnum.OFFLINE" class="h-2 w-2 rounded-full inline-block ml-2"></span>
+  <span [class.bg-green-500]="device.connectionStatus==OnlineStatusEnum.ONLINE" [class.bg-red-500]="device.connectionStatus==OnlineStatusEnum.OFFLINE" class="h-2 w-2 rounded-full inline-block ml-2"></span>
 </div>

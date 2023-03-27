@@ -5,13 +5,14 @@ import {ExtraActionModel} from "./extraAction.model";
 import {SensorModel} from "./sensor.model";
 
 export interface DeviceModel {
+  id: string;
   thingId: string;
   usersOwnersIds: string[];
   roomId: string;
   networkData: NetworkDataModel;
   name: string;
   sensors: SensorModel[];
-  connectionStatus: string;
+  connectionStatus: OnlineStatusEnum;
   installationStatus: string;
   registrationDate: string;
   activationDate: string;
