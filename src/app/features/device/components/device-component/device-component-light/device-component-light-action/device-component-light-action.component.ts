@@ -3,6 +3,8 @@ import {GridListItemInputModel} from "../../../../../../core/models/gridListItem
 import {DeviceService} from "../../../../../../core/services/device.service";
 import {IconsService} from "../../../../../../core/services/icons.service";
 import {ExtraActionModel} from "../../../../../../core/models/extraAction.model";
+import {SensorTypeEnum} from "../../../../../../core/enums/sensorType.enum";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-device-component-light-action',
@@ -15,8 +17,9 @@ export class DeviceComponentLightActionComponent implements OnInit {
   @Input()
   actionList: ExtraActionModel[] = [];
   gridListItemInputList: GridListItemInputModel[] = []
+  configForm: FormGroup[] = {} as FormGroup[];
   // to get from server
-  constructor(private deviceService: DeviceService, private iconService:IconsService) {
+  constructor(private deviceService: DeviceService, private iconService:IconsService, private fb: FormBuilder) {
   }
 
 
@@ -37,13 +40,20 @@ export class DeviceComponentLightActionComponent implements OnInit {
 
   ngOnInit(): void {
     this.actionList?.forEach((action, index) => {
-      let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
-      gridListItemInput.icon = this.iconService.getLightComponentActionIcon(action.name);
-      gridListItemInput.label = action.name;
-      gridListItemInput.id = String(index)
-      gridListItemInput.description = "description lorem ipsum todo";
-      this.gridListItemInputList.push(gridListItemInput);
-
+      if(action.categories.includes(SensorTypeEnum.LIGHT)){
+        let gridListItemInput: GridListItemInputModel = {} as GridListItemInputModel;
+        gridListItemInput.icon = this.iconService.getLightComponentActionIcon(action.name);
+        gridListItemInput.label = action.name;
+        gridListItemInput.id = String(index)
+        gridListItemInput.description = "description lorem ipsum todo";
+        this.gridListItemInputList.push(gridListItemInput);
+        // create form
+        let formGroup : FormGroup = this.fb.group({});
+        action.fields.forEach(field => {
+          formGroup.addControl(field.name,this.fb.control(''))
+        })
+        this.configForm[index]=formGroup;
+      }
     })
   }
 }

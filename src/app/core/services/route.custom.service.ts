@@ -17,7 +17,7 @@ export class RouteCustomService {
     let value = undefined
     switch (deviceComponentType) {
       case SensorTypeEnum.LIGHT:
-        value = deviceRoutesName.DEVICE_BASE_URL+'/'+deviceRoutesName.DEVICE_COMPONENT_LIGHT_DETAILS // todo make a general page?
+        value = (deviceRoutesName.DEVICE_BASE_URL+'/'+deviceRoutesName.DEVICE_COMPONENT_LIGHT_DETAILS).replace(":id",deviceId) // todo make a general page?
         break
       case SensorTypeEnum.MIX:
         value = undefined

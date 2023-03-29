@@ -15,6 +15,7 @@ import {
   DeviceComponentLightColorComponent
 } from "./components/device-component/device-component-light/device-component-light-color/device-component-light-color.component";
 import { DeviceComponentBaseComponent } from './components/device-component/device-component-base/device-component-base.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -35,7 +36,8 @@ import { DeviceComponentBaseComponent } from './components/device-component/devi
         RouterModule.forChild(deviceRoutingModule),
         SharedModule,
         CommonModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        ReactiveFormsModule
     ]
 })
 export class DeviceModule { }

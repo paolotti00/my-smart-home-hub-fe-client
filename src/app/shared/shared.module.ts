@@ -6,6 +6,8 @@ import {NameComponent} from './components/name/name.component';
 import {GridListComponent} from './components/grid-list/grid-list.component';
 import {ColorPickerModule} from "ngx-color-picker";
 import {ColorPickerComponent} from './components/color-picker/color-picker.component';
+import { GridListContainerComponent } from './components/grid-list/grid-list-container/grid-list-container.component';
+import { GridListElementComponent } from './components/grid-list/grid-list-element/grid-list-element.component';
 
 
 @NgModule({
@@ -13,13 +15,17 @@ import {ColorPickerComponent} from './components/color-picker/color-picker.compo
     CardCompactWithIconAndTextComponent,
     NameComponent,
     GridListComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    GridListContainerComponent,
+    GridListElementComponent
   ],
   exports: [
     NameComponent,
     GridListComponent,
     ColorPickerComponent,
-    CardCompactWithIconAndTextComponent
+    CardCompactWithIconAndTextComponent,
+    GridListContainerComponent,
+    GridListElementComponent
   ],
   imports: [
     CommonModule,

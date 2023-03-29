@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {GridListItemInputModel} from "../../../core/models/gridListItemInput.model";
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-grid-list',
@@ -12,6 +13,7 @@ export class GridListComponent {
   @Output()
   idOnClickEvent = new EventEmitter<number>;
   selectedItem=-1
+  faGear = faGear;
 
   clickOnItem(itemId:string,arrayIndex:number){
     this.selectedItem = arrayIndex;
