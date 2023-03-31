@@ -5,6 +5,8 @@ import {IconsService} from "../../../../../../core/services/icons.service";
 import {ExtraActionModel} from "../../../../../../core/models/extraAction.model";
 import {SensorTypeEnum} from "../../../../../../core/enums/sensorType.enum";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {FieldModel} from "../../../../../../core/models/field.model";
+import {HtmlService} from "../../../../../../core/services/html.service";
 
 @Component({
   selector: 'app-device-component-light-action',
@@ -19,7 +21,7 @@ export class DeviceComponentLightActionComponent implements OnInit {
   gridListItemInputList: GridListItemInputModel[] = []
   configForm: FormGroup[] = {} as FormGroup[];
   // to get from server
-  constructor(private deviceService: DeviceService, private iconService:IconsService, private fb: FormBuilder) {
+  constructor(private deviceService: DeviceService, private iconService:IconsService, private fb: FormBuilder, public htmlService: HtmlService) {
   }
 
 
