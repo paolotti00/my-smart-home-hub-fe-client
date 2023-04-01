@@ -27,9 +27,9 @@ export class DeviceService {
   }
   // call action on device
   deviceDoAction(deviceId: string, deviceAction:ExtraActionModel) : Observable<any>{
-    let url = this.apiUrlUtilityService.getPutDeviceDoAction(deviceId);
+    let url = this.apiUrlUtilityService.getPostDeviceDoAction(deviceId);
     let body = deviceAction
-    return this.http.put(url,deviceAction)
+    return this.http.post(url,deviceAction)
   }
   // light //todo move to light service
   deviceSetColor(deviceId:string,colorToSet:string): Observable<any>{

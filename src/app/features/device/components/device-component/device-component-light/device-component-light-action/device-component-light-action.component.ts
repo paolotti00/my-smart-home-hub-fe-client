@@ -32,11 +32,15 @@ export class DeviceComponentLightActionComponent implements OnInit {
     // effectData.rgbColors = [];
     // effectData.rgbColors.push("204, 51, 255");
     // effectData.rgbColors.push("255, 80, 80");
-    action.name = this.actionList[actionIndex].name;
-   // action.effect_data = effectData;
-    console.warn("todo - effect data is stubbed")
+    action = this.actionList[actionIndex];
+    action.fields.forEach(field =>{
+      if(this.configForm[actionIndex].get(field.name)!=null && this.configForm[actionIndex].get(field.name)!=undefined){
+        field.value=this.configForm[actionIndex].get(field.name)!.value
+      }
+    })
+    console.log("calling action " + JSON.stringify(action))
     this.deviceService.deviceDoAction(this.deviceId,action).subscribe(result => {
-      console.log("called action : " + action);
+      console.log("called action : " + JSON.stringify(action));
     })
   }
 

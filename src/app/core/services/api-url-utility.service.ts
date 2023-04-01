@@ -76,10 +76,10 @@ export class ApiUrlUtilityService {
     } return url;
   }
 
-  getPutDeviceDoAction(deviceId: string) {
+  getPostDeviceDoAction(deviceId: string) {
     let url:string;
     let baseUrl=this.getPutDeviceDoActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
-    url = baseUrl + '/devices/'+deviceId+'/do/action';
+    url = baseUrl + '/devices/'+deviceId+'/action';
     if(this.getPutDeviceDoActionIsMock){
       console.warn(url+" is a mock!");
     } return url;
