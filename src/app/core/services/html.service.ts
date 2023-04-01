@@ -29,4 +29,28 @@ export class HtmlService {
     }
     return typeToReturn;
   }
+
+  getConvertedValueByFieldType(fieldTypeEnum:FieldTypeEnumEnum, originalValue : any): string {
+    let value = originalValue;
+    switch (fieldTypeEnum) {
+      case FieldTypeEnumEnum.COLOR:
+        value = this.hexToRgb(originalValue)
+        break
+      default:
+        value = originalValue
+    }
+    return  value;
+  }
+
+  hexToRgb(hex: string): number[] {
+    // convert the hexadecimal string to rgb value
+    let rgbArray: number[] =[]
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    rgbArray.push(r);
+    rgbArray.push(g);
+    rgbArray.push(b);
+    return rgbArray;
+  }
 }

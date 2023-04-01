@@ -6,7 +6,7 @@
 </div>
 <div class="divider mt-0"></div>
 <div *ngIf="activeTab==TAB_ACTION" class="container">
-  <app-device-component-light-action [deviceId]="device.id" [actionList]="device.supportedExtraActions"></app-device-component-light-action>
+  <app-device-component-action [deviceId]="device.id" [actionList]="device.supportedExtraActions"></app-device-component-action>
 </div>
 <div *ngIf="activeTab==TAB_WHITE" class="container">
   test 2

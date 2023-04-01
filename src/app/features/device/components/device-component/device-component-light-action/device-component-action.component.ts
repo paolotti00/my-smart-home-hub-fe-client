@@ -1,25 +1,26 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {GridListItemInputModel} from "../../../../../../core/models/gridListItemInput.model";
-import {DeviceService} from "../../../../../../core/services/device.service";
-import {IconsService} from "../../../../../../core/services/icons.service";
-import {ExtraActionModel} from "../../../../../../core/models/extraAction.model";
-import {SensorTypeEnum} from "../../../../../../core/enums/sensorType.enum";
+import {GridListItemInputModel} from "../../../../../core/models/gridListItemInput.model";
+import {DeviceService} from "../../../../../core/services/device.service";
+import {IconsService} from "../../../../../core/services/icons.service";
+import {ExtraActionModel} from "../../../../../core/models/extraAction.model";
+import {SensorTypeEnum} from "../../../../../core/enums/sensorType.enum";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {FieldModel} from "../../../../../../core/models/field.model";
-import {HtmlService} from "../../../../../../core/services/html.service";
+import {FieldModel} from "../../../../../core/models/field.model";
+import {HtmlService} from "../../../../../core/services/html.service";
 
 @Component({
-  selector: 'app-device-component-light-action',
-  templateUrl: './device-component-light-action.component.html',
-  styleUrls: ['./device-component-light-action.component.scss']
+  selector: 'app-device-component-action',
+  templateUrl: './device-component-action.component.html',
+  styleUrls: ['./device-component-action.component.scss']
 })
-export class DeviceComponentLightActionComponent implements OnInit {
+export class DeviceComponentActionComponent implements OnInit {
   @Input()
   deviceId:string = ""
   @Input()
   actionList: ExtraActionModel[] = [];
   gridListItemInputList: GridListItemInputModel[] = []
   configForm: FormGroup[] = {} as FormGroup[];
+  selectedItem=-1
   // to get from server
   constructor(private deviceService: DeviceService, private iconService:IconsService, private fb: FormBuilder, public htmlService: HtmlService) {
   }
@@ -32,10 +33,11 @@ export class DeviceComponentLightActionComponent implements OnInit {
     // effectData.rgbColors = [];
     // effectData.rgbColors.push("204, 51, 255");
     // effectData.rgbColors.push("255, 80, 80");
+    this.selectedItem=actionIndex
     action = this.actionList[actionIndex];
     action.fields.forEach(field =>{
       if(this.configForm[actionIndex].get(field.name)!=null && this.configForm[actionIndex].get(field.name)!=undefined){
-        field.value=this.configForm[actionIndex].get(field.name)!.value
+        field.value=this.htmlService.getConvertedValueByFieldType(field.type,this.configForm[actionIndex].get(field.name)!.value)
       }
     })
     console.log("calling action " + JSON.stringify(action))

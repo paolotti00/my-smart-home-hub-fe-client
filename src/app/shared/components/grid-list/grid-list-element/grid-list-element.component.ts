@@ -14,12 +14,14 @@ export class GridListElementComponent {
   item:GridListItemInputModel= {} as GridListItemInputModel
   @Output()
   idOnClickEvent = new EventEmitter<number>;
+  @Input()
   selectedItem=-1
   faGear = faGear;
   faCheck = faCheck;
   showBack:boolean = false;
 
   clickOnItem(itemId:string,arrayIndex:number){
+    console.log(arrayIndex)
     this.selectedItem = arrayIndex;
     this.idOnClickEvent.emit(Number(itemId))
   }
