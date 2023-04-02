@@ -4,7 +4,7 @@
     {{device.name}}
   </p>
   <div [ngClass]="{'grid gap-1 mt-2':!inListMode}">
-    <div [ngClass]="{'grid col-span-3 grid-cols-2 grid-rows-2 gap-1 mt-2':colSpan>1}">
+    <div class="grid col-span-3 gap-1 mt-2" [ngClass]="{'grid-cols-2':colSpan>1,'grid-cols-3':colSpan>2}">
       <app-device-component-base (clickedOnSensorDetail)="setDeviceInSharedData()" *ngIf="device.leds"  [deviceId]="device.id" [leds]="device.leds" [showOnOffToggle]="true"></app-device-component-base>
       <div *ngFor="let sensor of device.sensors">
         <app-device-component-base *ngIf="sensor" [value]="sensor.value+sensor.unit" [deviceId]="device.id" [sensor]="sensor"></app-device-component-base>
