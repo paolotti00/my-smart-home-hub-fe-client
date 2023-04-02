@@ -15,7 +15,7 @@ import { DeviceComponentBaseComponent } from './components/device-component/devi
 import {ReactiveFormsModule} from "@angular/forms";
 import {
   DeviceComponentActionComponent
-} from "./components/device-component/device-component-light-action/device-component-action.component";
+} from "./components/device-component/device-component-action/device-component-action.component";
 
 
 
