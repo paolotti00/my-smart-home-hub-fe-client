@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Output,Input} from '@angular/core';
-import { faGear, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {faCheck, faGear} from '@fortawesome/free-solid-svg-icons';
 import {GridListItemInputModel} from "../../../../core/models/gridListItemInput.model";
+import {GridListElementTypeEnum} from "../../../../core/enums/gridListElementType.enum";
 
 @Component({
   selector: 'app-grid-list-element',
@@ -12,13 +13,18 @@ export class GridListElementComponent {
   index:number=0
   @Input()
   item:GridListItemInputModel= {} as GridListItemInputModel
+  @Input()
+  backIsActive :boolean = false
   @Output()
   idOnClickEvent = new EventEmitter<number>;
   @Input()
   selectedItem=-1
+  @Input()
+  listElementType:GridListElementTypeEnum=GridListElementTypeEnum.BIG_ICON
   faGear = faGear;
   faCheck = faCheck;
   showBack:boolean = false;
+  gridListElementTypeEnum=GridListElementTypeEnum
 
   clickOnItem(itemId:string,arrayIndex:number){
     console.log(arrayIndex)

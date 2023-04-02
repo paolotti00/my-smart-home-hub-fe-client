@@ -1,6 +1,5 @@
 <app-grid-list-container>
-  <ng-container *ngFor="let gridListElement of gridListItemInputList; index as i" >
-    <app-grid-list-element [item]="gridListElement" [index]="i" [selectedItem]="selectedItem" (idOnClickEvent)="callAction($event)">
+    <app-grid-list-element *ngFor="let gridListElement of gridListItemInputList; index as i" [item]="gridListElement" [index]="i" [selectedItem]="selectedItem" [backIsActive]="true" [listElementType]="gridListElementTypeEnum.BIG_ICON" (idOnClickEvent)="callAction($event)">
      <!-- back of card -->
       <form [formGroup]="configForm[i]">
         <div *ngFor="let field of actionList[i].fields">
@@ -9,5 +8,4 @@
         </div>
       </form>
     </app-grid-list-element>
-  </ng-container>
 </app-grid-list-container>

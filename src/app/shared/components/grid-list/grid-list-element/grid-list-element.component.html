@@ -1,5 +1,6 @@
-<div [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
-  <fa-icon *ngIf="!showBack" (click)="showBack=!showBack" class="absolute top-0 left-0 p-2 cursor-pointer z-50" [icon]="faGear"></fa-icon>
+<!--big icon-->
+<div *ngIf="listElementType==gridListElementTypeEnum.BIG_ICON" [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl bg-cyan-700 relative">
+  <fa-icon *ngIf="backIsActive && !showBack" (click)="showBack=!showBack" class="absolute top-0 left-0 p-2 cursor-pointer z-50" [icon]="faGear"></fa-icon>
   <ng-container *ngIf="!showBack">
     <div (click)="clickOnItem(item.id,index)" class="absolute min-w-full h-3/5 pt-2">
       <fa-icon class="text-center" [icon]="item.icon" [styles]="{'height':'100%','width':'100%'}">
@@ -13,5 +14,16 @@
     <fa-icon *ngIf="showBack" (click)="showBack=!showBack" class="z-50" [icon]="faCheck"></fa-icon>
     <!--BACK OF ELEMENT PLACEHOLDER-->
     <ng-content></ng-content>
+  </div>
+</div>
+<!--big text-->
+<div *ngIf="listElementType==gridListElementTypeEnum.BIG_TEXT" [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl relative bg-cyan-700">
+  <div class="relative">
+    <h2 class="text-2xl text-center mb-2">{{item.title}}</h2>
+    <div class="text-center mb-2">
+      <span class="text-5xl font-bold">{{item.label}}</span>
+    </div>
+    <fa-icon class="text-center" [icon]="item.icon" [styles]="{'width':'100%'}">
+    </fa-icon>
   </div>
 </div>

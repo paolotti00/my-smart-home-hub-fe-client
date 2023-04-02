@@ -1,1 +1,3 @@
-<p>measurements-summary works!</p>
+<app-grid-list-container>
+    <app-grid-list-element *ngFor="let gridListElement of gridListItemInputList; index as i" [item]="gridListElement" [index]="i" [listElementType]="gridListElementTypeEnum.BIG_TEXT" (idOnClickEvent)="handleElementClick($event)"> </app-grid-list-element>
+</app-grid-list-container>

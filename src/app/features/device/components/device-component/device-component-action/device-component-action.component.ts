@@ -7,6 +7,7 @@ import {SensorTypeEnum} from "../../../../../core/enums/sensorType.enum";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {FieldModel} from "../../../../../core/models/field.model";
 import {HtmlService} from "../../../../../core/services/html.service";
+import {GridListElementTypeEnum} from "../../../../../core/enums/gridListElementType.enum";
 
 @Component({
   selector: 'app-device-component-action',
@@ -21,6 +22,7 @@ export class DeviceComponentActionComponent implements OnInit {
   gridListItemInputList: GridListItemInputModel[] = []
   configForm: FormGroup[] = {} as FormGroup[];
   selectedItem=-1
+  gridListElementTypeEnum=GridListElementTypeEnum
   // to get from server
   constructor(private deviceService: DeviceService, private iconService:IconsService, private fb: FormBuilder, public htmlService: HtmlService) {
   }

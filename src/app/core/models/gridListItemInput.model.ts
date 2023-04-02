@@ -4,4 +4,5 @@ export interface GridListItemInputModel{
   icon:any;
   description:any;
   callbackName:string;
+  title:string;
 }
