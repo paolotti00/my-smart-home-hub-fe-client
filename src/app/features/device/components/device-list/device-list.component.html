@@ -1,0 +1,8 @@
+<span><p>Devices <3</p></span>
+<div class="grid grid-cols-3 gap-1 mt-10">
+  <div class="col-span-2 hidden"></div> <!-- work around to do col-span works-->
+  <app-device-item *ngFor="let device of devices" [inListMode]="true"
+                   [colSpan]="getColSpan(device)"
+                   [device]="device">
+  </app-device-item>
+</div>

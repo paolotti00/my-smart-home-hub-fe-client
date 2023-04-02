@@ -11,7 +11,6 @@ export class RoomDetailComponent {
   @Input()
   roomId: string = ""
   devices: DeviceModel[] = [];
-  colSpan = 1
 
   constructor(private deviceService: DeviceService) {
   }
@@ -22,19 +21,5 @@ export class RoomDetailComponent {
         this.devices = result.data;
       });
     }
-  }
-
-  getColSpan(device: DeviceModel) {
-    let colSpan = 1
-    if (((device.sensors != undefined && device.sensors.length > 2) || (device.leds != undefined && device.leds.size > 2))
-    ) {
-      colSpan = 3
-    } else  if (((device.sensors != undefined && device.sensors.length > 1) || (device.leds != undefined && device.leds.size > 1))
-    ) {
-      colSpan = 2
-    } else if ((device.sensors != undefined && device.sensors.length == 1) && (device.leds != undefined)){
-      colSpan = 2
-    }
-    return colSpan;
   }
 }

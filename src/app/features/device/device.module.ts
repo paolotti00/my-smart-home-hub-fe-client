@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {
   DeviceComponentActionComponent
 } from "./components/device-component/device-component-action/device-component-action.component";
+import { DeviceListComponent } from './components/device-list/device-list.component';
 
 
 
@@ -27,11 +28,13 @@ import {
     DeviceItemComponent,
     DeviceComponentActionComponent,
     DeviceComponentLightColorComponent,
-    DeviceComponentBaseComponent
+    DeviceComponentBaseComponent,
+    DeviceListComponent
   ],
-  exports:[
-    DeviceItemComponent
-  ],
+    exports: [
+        DeviceItemComponent,
+        DeviceListComponent
+    ],
     imports: [
         RouterModule.forChild(deviceRoutingModule),
         SharedModule,
