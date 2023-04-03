@@ -14,8 +14,8 @@ export class RoomsListComponent implements OnInit, OnChanges{
   @Input()
   userId: string = ""
   @Output()
-  selectedRoomIdEventEmitter = new EventEmitter<string>();
-  selectedRoom: string = ""
+  selectedRoomIdEventEmitter = new EventEmitter<RoomModel>();
+  selectedRoomIf: string = ""
   rooms: RoomModel[] = []
   faKitchenSet=faKitchenSet;
   faBed=faDoorClosed ;
@@ -31,17 +31,17 @@ export class RoomsListComponent implements OnInit, OnChanges{
       this.getRoomsFromServer(this.userId);
     }
   }
-  onSelectRoom(roomId: string) {
-    this.selectedRoom = roomId;
-    this.selectedRoomIdEventEmitter.emit(roomId);
+  onSelectRoom(room: RoomModel) {
+    this.selectedRoomIf = room.id;
+    this.selectedRoomIdEventEmitter.emit(room);
   }
   getRoomsFromServer(userId: string){
     this.roomServiceService.getRoomsByUser(this.userId).subscribe(result => {
       this.rooms = result.data;
       if(this.rooms.length>0){
         // setting the first one as default
-        this.selectedRoom = this.rooms[0].id;
-        this.selectedRoomIdEventEmitter.emit(this.rooms[0].id);
+        this.selectedRoomIf = this.rooms[0].id;
+        this.selectedRoomIdEventEmitter.emit(this.rooms[0]);
       }
     });
   }

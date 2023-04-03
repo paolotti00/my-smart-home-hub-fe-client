@@ -1,6 +1,6 @@
 <div class="divider"></div>
 <!-- measurements summery -->
-<app-measurements-summary></app-measurements-summary>
+<app-measurements-summary [temp]="room.temp" [humidity]="room.humidity" [haveLights]="true"></app-measurements-summary>
 <!--  devices-->
 <div class="divider"></div>
 <app-device-list [devices]="devices"></app-device-list>

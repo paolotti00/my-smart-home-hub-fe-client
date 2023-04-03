@@ -1,5 +1,5 @@
 <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1  ">
   <div *ngFor="let room of rooms">
-    <app-card-compact-with-icon-and-text [isSelected]="selectedRoom==room.id" (click)="onSelectRoom(room.id)" [text]="room.name" [icon]="faKitchenSet"></app-card-compact-with-icon-and-text>
+    <app-card-compact-with-icon-and-text [isSelected]="selectedRoomIf==room.id" (click)="onSelectRoom(room)" [text]="room.name" [icon]="faKitchenSet"></app-card-compact-with-icon-and-text>
   </div>
 </div>

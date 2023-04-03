@@ -3,6 +3,7 @@ import {DeviceService} from "../../core/services/device.service";
 import {DeviceModel} from "../../core/models/device.model";
 import {InitService} from "../../core/services/init.service";
 import {SharedObjectModel} from "../../core/models/sharedObject.model";
+import {RoomModel} from "../../core/models/room.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,7 @@ import {SharedObjectModel} from "../../core/models/sharedObject.model";
 export class DashboardComponent implements OnInit {
   devices: DeviceModel[] = [];
   userId: string = "";
-  roomId: string = "";
+  room: RoomModel = {} as RoomModel;
   sharedObject: SharedObjectModel = {} as SharedObjectModel;
 
   constructor(private initService: InitService, private deviceService: DeviceService) {
@@ -27,8 +28,8 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  onRoomSelected(roomId: string) {
-    console.log(roomId)
-    this.roomId = roomId;
+  onRoomSelected(room: RoomModel) {
+    console.log(room)
+    this.room = room;
   }
 }
