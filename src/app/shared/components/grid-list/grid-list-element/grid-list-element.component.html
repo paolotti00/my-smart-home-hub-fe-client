@@ -19,9 +19,9 @@
 <!--big text-->
 <div *ngIf="listElementType==gridListElementTypeEnum.BIG_TEXT" [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl relative bg-cyan-700">
   <div class="">
-    <h2 class="text-2xl text-center mb-2">{{item.title}}</h2>
+    <h2 class="text-base text-center mb-2">{{item.title}}</h2>
     <div class="text-center mb-2">
-      <span class="text-2xl font-bold">{{item.label}}</span>
+      <span class="text-3xl font-bold">{{item.label}}</span>
     </div>
     <fa-icon class="text-center" [icon]="item.icon" [styles]="{'width':'100%'}">
     </fa-icon>
