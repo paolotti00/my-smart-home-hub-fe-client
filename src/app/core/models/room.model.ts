@@ -4,4 +4,5 @@ export interface RoomModel {
   name: string;
   humidity: number;
   temp: number;
+  haveLights: boolean;
 }
