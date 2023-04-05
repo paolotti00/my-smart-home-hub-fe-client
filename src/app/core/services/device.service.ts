@@ -48,7 +48,7 @@ export class DeviceService {
   }
   // web socket
   getStatusUpdateFromWebSocket(deviceId: string): Observable<any>{
-    let topic = this.apiUrlUtilityService.getWebSocketUpdateStatusTopicUrl(deviceId)
+    let topic = this.apiUrlUtilityService.getWebSocketDeviceUpdateStatusTopicUrl(deviceId)
     return this.webSocketService.connect(topic)
   }
 

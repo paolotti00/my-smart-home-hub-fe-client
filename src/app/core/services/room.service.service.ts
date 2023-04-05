@@ -16,4 +16,9 @@ export class RoomServiceService {
   getRoomsByUser(idUser: string): Observable<BaseResponseDto<RoomModel[]>> {
     return this.http.get<BaseResponseDto<RoomModel[]>>(this.apiUrlUtilityService.getGetUserRoomsUrl(idUser))
   }
+  // web socket
+  getStatusUpdateFromWebSocket(deviceId: string): Observable<any>{
+    let topic = this.apiUrlUtilityService.getWebSocketDeviceUpdateStatusTopicUrl(deviceId)
+    return this.webSocketService.connect(topic)
+  }
 }

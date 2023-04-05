@@ -1,25 +1,38 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {GridListItemInputModel} from "../../../../core/models/gridListItemInput.model";
 import {faTemperatureFull, faLightbulb, faDroplet} from "@fortawesome/free-solid-svg-icons";
 import {GridListElementTypeEnum} from "../../../../core/enums/gridListElementType.enum";
+import {Router} from "@angular/router";
+import {RouteCustomService} from "../../../../core/services/route.custom.service";
+import {ViewDataSharingService} from "../../../../core/services/view.data.sharing.service";
 
 @Component({
   selector: 'app-measurements-summary',
   templateUrl: './measurements-summary.component.html',
   styleUrls: ['./measurements-summary.component.scss']
 })
-export class MeasurementsSummaryComponent implements OnChanges {
+export class MeasurementsSummaryComponent implements OnInit,OnChanges {
+
   @Input()
   temp: any = undefined;
   @Input()
   humidity: any = undefined;
   @Input()
   haveLights: boolean = false;
+  @Input()
+  roomId!: string;
+  @Output() measurementClickedEmitter = new EventEmitter<number>();
   gridListItemInputList: GridListItemInputModel[] = [];
   gridListElementTypeEnum = GridListElementTypeEnum;
   indexTemp: number | undefined;
   indexHum: number | undefined;
   indexLights: number | undefined;
+
+
+
+  ngOnInit(): void {
+    this.gridListItemInputList = [];
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['temp'] && !changes['temp'].firstChange && this.temp !== undefined) {
@@ -65,6 +78,7 @@ export class MeasurementsSummaryComponent implements OnChanges {
   }
 
   handleElementClick(index: number) {
-
+    this.measurementClickedEmitter.emit(index)
+    console.log("k")
   }
 }

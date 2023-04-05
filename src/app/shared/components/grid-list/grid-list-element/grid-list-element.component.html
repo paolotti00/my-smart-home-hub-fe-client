@@ -17,7 +17,7 @@
   </div>
 </div>
 <!--big text-->
-<div *ngIf="listElementType==gridListElementTypeEnum.BIG_TEXT" [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl relative bg-cyan-700">
+<div (click)="clickOnItem(item.id,index)" *ngIf="listElementType==gridListElementTypeEnum.BIG_TEXT" [ngClass]="{'text-accent':index==selectedItem}" class="w-full h-0 shadow-lg pb-full rounded-xl relative bg-cyan-700">
   <div class="">
     <h2 class="text-base text-center mb-2">{{item.title}}</h2>
     <div class="text-center mb-2">

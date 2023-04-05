@@ -87,9 +87,14 @@ export class ApiUrlUtilityService {
 
 
   // web socket
-  getWebSocketUpdateStatusTopicUrl(deviceId: string){
+  getWebSocketDeviceUpdateStatusTopicUrl(deviceId: string){
     let url:string;
     url = '/device/'+deviceId+'/status';
+    return url;
+  }
+  getWebSocketRoomUpdateMeasurementTopicUrl(roomId: string){
+    let url:string;
+    url = '/room/'+roomId+'/measurements';
     return url;
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SensorTypeEnum} from "../enums/sensorType.enum";
-import {deviceRoutesName} from "../constants/routes.names.constant";
+import {deviceRoutesName, roomRoutesName} from "../constants/routes.names.constant";
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +37,9 @@ export class RouteCustomService {
       value = value.replace(":id",componentId)
     }
     return value;
+  }
+  // room routing
+  getRouteToRoomMeasurement(roomId: string){
+    return (roomRoutesName.ROOM_BASE_URL+'/'+roomRoutesName.ROOM_MEASUREMENT).replace(":id",roomId)
   }
 }
