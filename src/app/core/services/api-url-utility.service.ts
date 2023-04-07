@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {serverConstants} from "../constants/server.constants";
-import {SensorTypeEnum} from "../enums/sensorType.enum";
 import {OnOffStatusEnum} from "../enums/onOffStatus.enum";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiUrlUtilityService {
+  mockAll=false;
   getUserUrlIsMock=true;
   getGetDevicesUrlIsMock=false;
   getGetDeviceActionUrlIsMock=true;
@@ -21,31 +21,31 @@ export class ApiUrlUtilityService {
   constructor() { }
   getGetUserUrl(idUser:string){
     let url:string;
-    let baseUrl=this.getUserUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getUserUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/users/'+idUser;
-    if(this.getUserUrlIsMock){
+    if(this.mockAll || this.getUserUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
   getGetUserDevicesUrl(idUser:string){
     let url:string;
-    let baseUrl=this.getGetDevicesUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getGetDevicesUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/users/'+idUser+'/devices/';
-    if(this.getGetDevicesUrlIsMock){
+    if(this.mockAll || this.getGetDevicesUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
   getGetUserRoomsUrl(idUser:string){
     let url:string;
-    let baseUrl=this.getGetUserRoomsUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getGetUserRoomsUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/users/'+idUser+'/rooms/';
-    if(this.getGetUserRoomsUrlIsMock){
+    if(this.mockAll || this.getGetUserRoomsUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
   getGetRoomDevicesUrl(idUser:string){
     let url:string;
-    let baseUrl=this.getGetRoomDevicesUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getGetRoomDevicesUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/rooms/'+idUser+'/devices/';
     if(this.getGetRoomDevicesUrlIsMock){
       console.warn(url+" is a mock!");
@@ -53,34 +53,26 @@ export class ApiUrlUtilityService {
   }
   getGetDeviceActionUrl(brand:string){
     let url:string;
-    let baseUrl=this.getGetDeviceActionUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getGetDeviceActionUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/action/brand/'+brand+'/';
-    if(this.getGetDeviceActionUrlIsMock){
-      console.warn(url+" is a mock!");
-    } return url;
-  }
-  getGetDeviceComponentActionUrl(brand:string,componentType:SensorTypeEnum){
-    let url:string;
-    let baseUrl=this.getGetDeviceComponentActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
-    url = baseUrl + '/devices/action/brand/'+brand+'/'+'component/'+componentType+'/';
-    if(this.getGetDeviceComponentActionIsMock){
+    if(this.mockAll || this.getGetDeviceActionUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
   getPutDeviceSetColorUrl(deviceId:string){
     let url:string;
-    let baseUrl=this.getPutDeviceSetColorUrlIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getPutDeviceSetColorUrlIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/'+deviceId+'/set/color';
-    if(this.getPutDeviceSetColorUrlIsMock){
+    if(this.mockAll || this.getPutDeviceSetColorUrlIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
 
   getPostDeviceDoAction(deviceId: string) {
     let url:string;
-    let baseUrl=this.getPutDeviceDoActionIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getPutDeviceDoActionIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/'+deviceId+'/action';
-    if(this.getPutDeviceDoActionIsMock){
+    if(this.mockAll || this.getPutDeviceDoActionIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
@@ -100,9 +92,9 @@ export class ApiUrlUtilityService {
 
   getPutDeviceSwitchLight(deviceId: string, onOffStatusEnum: OnOffStatusEnum) {
     let url:string;
-    let baseUrl=this.getPutDeviceSwitchLightIsMock?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    let baseUrl=(this.mockAll || this.getPutDeviceSwitchLightIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/'+deviceId+'/light/switch/'+onOffStatusEnum;
-    if(this.getPutDeviceSwitchLightIsMock){
+    if(this.mockAll || this.getPutDeviceSwitchLightIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }
