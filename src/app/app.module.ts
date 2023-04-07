@@ -10,6 +10,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import {HttpClientModule} from "@angular/common/http";
 import {DashboardModule} from "./features/dashboard/dashboard.module";
 import {DeviceModule} from "./features/device/device.module";
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {DeviceModule} from "./features/device/device.module";
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

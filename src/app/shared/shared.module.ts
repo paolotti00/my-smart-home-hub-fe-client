@@ -8,6 +8,8 @@ import {ColorPickerModule} from "ngx-color-picker";
 import {ColorPickerComponent} from './components/color-picker/color-picker.component';
 import { GridListContainerComponent } from './components/grid-list/grid-list-container/grid-list-container.component';
 import { GridListElementComponent } from './components/grid-list/grid-list-element/grid-list-element.component';
+import { ChartsLineComponent } from './components/charts-line/charts-line.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -17,20 +19,23 @@ import { GridListElementComponent } from './components/grid-list/grid-list-eleme
     GridListComponent,
     ColorPickerComponent,
     GridListContainerComponent,
-    GridListElementComponent
+    GridListElementComponent,
+    ChartsLineComponent
   ],
-  exports: [
-    NameComponent,
-    GridListComponent,
-    ColorPickerComponent,
-    CardCompactWithIconAndTextComponent,
-    GridListContainerComponent,
-    GridListElementComponent
-  ],
+    exports: [
+        NameComponent,
+        GridListComponent,
+        ColorPickerComponent,
+        CardCompactWithIconAndTextComponent,
+        GridListContainerComponent,
+        GridListElementComponent,
+        ChartsLineComponent
+    ],
   imports: [
     CommonModule,
     FontAwesomeModule,
-    ColorPickerModule
+    ColorPickerModule,
+    NgChartsModule
   ]
 })
 export class SharedModule {}
