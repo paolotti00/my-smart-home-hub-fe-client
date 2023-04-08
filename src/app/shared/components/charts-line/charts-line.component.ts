@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ChartType, ChartTypeRegistry} from "chart.js";
-import {MeasurementModel} from "../../../core/models/measurement.model";
+import {MeasurementDataModel} from "../../../core/models/measurementDataModel";
+import {MeasurementModel} from "../../../core/models/measurementModel";
 
 @Component({
   selector: 'app-charts-line',
@@ -9,7 +10,7 @@ import {MeasurementModel} from "../../../core/models/measurement.model";
 })
 export class ChartsLineComponent implements OnInit, OnChanges{
   @Input()
-  measurements: MeasurementModel[][] = []
+  measurements: MeasurementModel[] = []
   lineChartData:any =[];
   lineChartOptions = {
     responsive: true,
@@ -35,10 +36,10 @@ export class ChartsLineComponent implements OnInit, OnChanges{
     if(this.measurements.length>0){
       this.measurements.forEach(measurements=>{
         let data:any[]=[];
-        measurements.forEach(measurement=> {
+        measurements.measurementData.forEach(measurement=> {
           data.push({x:measurement.timestamp,y:measurement.value})
         })
-        this.lineChartData.push({data:data});
+        this.lineChartData.push({data:data,label:measurements.label});
       })
     }
   }
