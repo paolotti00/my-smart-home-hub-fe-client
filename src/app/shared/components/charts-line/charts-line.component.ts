@@ -37,7 +37,7 @@ export class ChartsLineComponent implements OnInit, OnChanges{
       this.measurements.forEach(measurements=>{
         let data:any[]=[];
         measurements.data.forEach(measurement=> {
-          data.push({x:measurement.timestamp,y:measurement.value})
+          data.push({x:measurement.date,y:measurement.value})
         })
         this.lineChartData.push({data:data,label:measurements.label});
       })

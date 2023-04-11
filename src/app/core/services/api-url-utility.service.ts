@@ -17,6 +17,7 @@ export class ApiUrlUtilityService {
   getGetRoomDevicesUrlIsMock = false;
   getGetUserRoomsUrlIsMock = false;
   getPutDeviceSwitchLightIsMock = false;
+  getGetRoomMeasurementsIsMock = false;
 
   constructor() { }
   getGetUserUrl(idUser:string){
@@ -73,6 +74,15 @@ export class ApiUrlUtilityService {
     let baseUrl=(this.mockAll || this.getPutDeviceDoActionIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
     url = baseUrl + '/devices/'+deviceId+'/action';
     if(this.mockAll || this.getPutDeviceDoActionIsMock){
+      console.warn(url+" is a mock!");
+    } return url;
+  }
+
+  getGetRoomMeasurementsUrl(roomId:string){
+    let url:string;
+    let baseUrl=(this.mockAll || this.getGetRoomMeasurementsIsMock)?serverConstants.SERVER_MOCKS_API_URL:serverConstants.SERVER_API_URL
+    url = baseUrl + '/rooms/'+roomId+'/measurements/';
+    if(this.mockAll || this.getGetRoomMeasurementsIsMock){
       console.warn(url+" is a mock!");
     } return url;
   }

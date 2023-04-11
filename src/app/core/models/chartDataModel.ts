@@ -1,5 +1,5 @@
 export interface ChartDataModel {
-  timestamp:string,
+  date:string,
   value:number,
   unit?: string
 }

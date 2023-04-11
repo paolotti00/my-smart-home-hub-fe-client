@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {BaseResponseDto} from "../models/baseResponseDto.model";
-import {DeviceModel} from "../models/device.model";
 import {ApiUrlUtilityService} from "./api-url-utility.service";
 import {HttpClient} from "@angular/common/http";
 import {WebSocketService} from "./websocket.service.ts.service";
