@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {MeasurementDataModel} from "../../../../core/models/measurementDataModel";
-import {MeasurementModel} from "../../../../core/models/measurementModel";
+import {ChartDataModel} from "../../../../core/models/chartDataModel";
+import {ChartModel} from "../../../../core/models/chartModel";
 
 @Component({
   selector: 'app-room-measurements',
@@ -8,18 +8,18 @@ import {MeasurementModel} from "../../../../core/models/measurementModel";
   styleUrls: ['./room-measurements.page.component.scss']
 })
 export class RoomMeasurementsPageComponent {
-  measurements: MeasurementModel[] = []
+  measurements: ChartModel[] = []
 
   constructor() {
-    let measurements: MeasurementModel = {
-      label: "temp", measurementData: [
+    let measurements: ChartModel = {
+      label: "temp", data: [
         {timestamp: "2022-03-08T08:30:00Z", value: 12.5},
         {timestamp: "2022-03-09T08:30:00Z", value: 15},
         {timestamp: "2022-03-11T08:30:00Z", value: 5}
       ]
     };
-    let measurements2: MeasurementModel = {
-      label: "hum", measurementData: [
+    let measurements2: ChartModel = {
+      label: "hum", data: [
         {timestamp: "2022-03-08T08:30:00Z", value: 9.5},
         {timestamp: "2022-03-09T08:30:00Z", value: 15},
         {timestamp: "2022-03-11T08:30:00Z", value: 1}

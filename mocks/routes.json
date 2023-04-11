@@ -1,4 +1,0 @@
-{
-  "/device/action/brand/:brand/": "/deviceAction_paolotti",
-  "/device/action/brand/:brand/component/:componentType": "/deviceActionComponent_light_paolotti"
-}
