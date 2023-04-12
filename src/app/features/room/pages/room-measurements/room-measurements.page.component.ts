@@ -14,20 +14,25 @@ import {MeasurementModel} from "../../../../core/models/measurementModel";
 export class RoomMeasurementsPageComponent implements OnInit {
   chartDatas: ChartModel[] = []
   room: RoomModel = {} as RoomModel;
+  measurements: MeasurementModel[] | undefined;
 
   constructor(private measurementsService: MeasurementsService, private viewDataSharingService: ViewDataSharingService) {
   }
 
   ngOnInit(): void {
+    // todo get roomId form url
     this.viewDataSharingService.currentRoom.subscribe(result => {
       this.room = result;
-      this.measurementsService.getMeasurementsByRoomId(this.room.id).subscribe(result => {
-        this.updateMeasurements(result.data);
-      })
+      if(!this.measurements){
+        this.measurementsService.getMeasurementsByRoomId(this.room.id).subscribe(result => {
+          this.updateMeasurements(result.data);
+        })
+      }
     })
   }
 
   updateMeasurements(measurements: MeasurementModel[]) {
+    this.measurements = measurements;
     let chartDataTemp: ChartModel = {label: "temperature", data: []};
     let chartDataHum: ChartModel = {label: "humidity", data: []};
     measurements.forEach(measurement => {
@@ -39,5 +44,6 @@ export class RoomMeasurementsPageComponent implements OnInit {
     })
     this.chartDatas.push(chartDataTemp);
     this.chartDatas.push(chartDataHum);
+    this.chartDatas = this.chartDatas.slice(); // in order to trigger onChanges //https://stackoverflow.com/questions/43223582/why-angular-2-ngonchanges-not-responding-to-input-array-push
   }
 }

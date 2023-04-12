@@ -10,7 +10,7 @@ import {ChartModel} from "../../../core/models/chartModel";
 })
 export class ChartsLineComponent implements OnInit, OnChanges{
   @Input()
-  measurements: ChartModel[] = []
+  chartDataList: ChartModel[] = []
   lineChartData:any =[];
   lineChartOptions = {
     responsive: true,
@@ -28,18 +28,19 @@ export class ChartsLineComponent implements OnInit, OnChanges{
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['measurements'] && !changes['measurements'].firstChange && this.measurements.length >0) {
+    if (changes['chartDataList'] && !changes['chartDataList'].firstChange && this.chartDataList.length >0) {
       this.updateData();
     }
   }
   updateData(){
-    if(this.measurements.length>0){
-      this.measurements.forEach(measurements=>{
+    if(this.chartDataList.length>0){
+      this.chartDataList.forEach(chartData=>{
         let data:any[]=[];
-        measurements.data.forEach(measurement=> {
+        chartData.data.forEach(measurement=> {
           data.push({x:measurement.date,y:measurement.value})
         })
-        this.lineChartData.push({data:data,label:measurements.label});
+        this.lineChartData.push({data:data,label:chartData.label});
+        this.lineChartData = this.lineChartData.slice(); // in order to trigger onChanges //https://stackoverflow.com/questions/43223582/why-angular-2-ngonchanges-not-responding-to-input-array-push
       })
     }
   }

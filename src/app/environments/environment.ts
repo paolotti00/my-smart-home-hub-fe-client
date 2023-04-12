@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  SERVER_API_URL:"http://192.168.62.25:8080"
+  SERVER_API_URL:"http://192.168.50.170:8080"
   //,SERVER_MOCKS_API_URL:"http://localhost:3001"
-  ,SERVER_MOCKS_API_URL:"http://192.168.62.25:3001"
+  ,SERVER_MOCKS_API_URL:"http://192.168.50.170:3001"
 };
 
 /*
