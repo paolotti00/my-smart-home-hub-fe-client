@@ -39,12 +39,5 @@ export class ViewDataSharingService {
   setCurrentRoom(value: RoomModel) {
     // Set the current room to the passed-in value
     this.currentRoomSubject.next(value);
-    // Subscribe to updates for this room using the WebSocket
-    this.roomService.getRoomMeasurementUpdateFromWebSocket(value.id).subscribe(result => {
-      // Update the current device with the new status from the WebSocket
-      // TODO move to measurement controller
-      this.currentRoomSubject.next(value);
-      console.log("todo - updated device " + result.id + "status from websocket")
-    });
   }
 }

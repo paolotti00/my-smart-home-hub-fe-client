@@ -7,5 +7,6 @@ import {environment} from '../../environments/environment';
 
 export const serverConstants = {
   SERVER_API_URL : environment.SERVER_API_URL,
+  WEBS_SOCKET_URL : environment.WEBS_SOCKET_URL,
   SERVER_MOCKS_API_URL : environment.SERVER_MOCKS_API_URL,
 }

@@ -15,9 +15,4 @@ export class RoomServiceService {
   getRoomsByUser(idUser: string): Observable<BaseResponseDto<RoomModel[]>> {
     return this.http.get<BaseResponseDto<RoomModel[]>>(this.apiUrlUtilityService.getGetUserRoomsUrl(idUser))
   }
-  // web socket
-  getRoomMeasurementUpdateFromWebSocket(deviceId: string): Observable<any>{
-    let topic = this.apiUrlUtilityService.getWebSocketRoomUpdateMeasurementTopicUrl(deviceId)
-    return this.webSocketService.connect(topic)
-  }
 }

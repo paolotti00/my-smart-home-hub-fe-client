@@ -16,4 +16,9 @@ export class MeasurementsService {
   getMeasurementsByRoomId(roomId:string):  Observable<BaseResponseDto<MeasurementModel[]>>{
     return this.http.get<BaseResponseDto<MeasurementModel[]>>(this.apiUrlUtilityService.getGetRoomMeasurementsUrl(roomId))
   }
+  // web socket
+  getRoomMeasurementUpdateFromWebSocket(roomId: string): Observable<any>{
+    let topic = this.apiUrlUtilityService.getWebSocketRoomUpdateMeasurementTopicUrl(roomId)
+    return this.webSocketService.connect(topic)
+  }
 }

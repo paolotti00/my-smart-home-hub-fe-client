@@ -96,7 +96,7 @@ export class ApiUrlUtilityService {
   }
   getWebSocketRoomUpdateMeasurementTopicUrl(roomId: string){
     let url:string;
-    url = '/room/'+roomId+'/measurements';
+    url = '/room/'+roomId+'/measurement';
     return url;
   }
 

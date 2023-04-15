@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as Stomp from '@stomp/stompjs';
 import {Observable} from "rxjs";
+import {serverConstants} from "../constants/server.constants";
+import * as constants from "constants";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,7 @@ export class WebSocketService {
   public connect(topic: string): Observable<string> {
     // WebSocket creation
     this.stompClient = new Stomp.Client({
-      brokerURL: 'ws://192.168.50.170:8080/websocket', // TODO
-
+      brokerURL: serverConstants.WEBS_SOCKET_URL,
       debug: (str: string) => {
         console.log(str);
       }

@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  SERVER_API_URL:"http://192.168.50.170:8080"
+  SERVER_API_URL:"http://192.168.50.131:8080",
+  WEBS_SOCKET_URL:"ws://192.168.50.131:8080/websocket",
   //,SERVER_MOCKS_API_URL:"http://localhost:3001"
-  ,SERVER_MOCKS_API_URL:"http://192.168.50.170:3001"
+  SERVER_MOCKS_API_URL:"http://192.168.50.131:3001"
 };
 
 /*

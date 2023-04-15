@@ -26,6 +26,7 @@ export class RoomMeasurementsPageComponent implements OnInit {
       if(!this.measurements){
         this.measurementsService.getMeasurementsByRoomId(this.room.id).subscribe(result => {
           this.updateMeasurements(result.data);
+          this.subscribeMeasurementWebsocket();
         })
       }
     })
@@ -45,5 +46,15 @@ export class RoomMeasurementsPageComponent implements OnInit {
     this.chartDatas.push(chartDataTemp);
     this.chartDatas.push(chartDataHum);
     this.chartDatas = this.chartDatas.slice(); // in order to trigger onChanges //https://stackoverflow.com/questions/43223582/why-angular-2-ngonchanges-not-responding-to-input-array-push
+  }
+
+  subscribeMeasurementWebsocket(){
+    this.measurementsService.getMeasurementsByRoomId(this.room.id).subscribe(result => {
+      this.updateMeasurements(result.data);
+      // Subscribe to updates for this room using the WebSocket
+      this.measurementsService.getRoomMeasurementUpdateFromWebSocket(this.room.id).subscribe(result => {
+        this.measurements?.push(result);
+      });
+    })
   }
 }
