@@ -49,12 +49,9 @@ export class RoomMeasurementsPageComponent implements OnInit {
   }
 
   subscribeMeasurementWebsocket(){
-    this.measurementsService.getMeasurementsByRoomId(this.room.id).subscribe(result => {
-      this.updateMeasurements(result.data);
-      // Subscribe to updates for this room using the WebSocket
-      this.measurementsService.getRoomMeasurementUpdateFromWebSocket(this.room.id).subscribe(result => {
-        this.measurements?.push(result);
-      });
-    })
+    // Subscribe to updates for this room using the WebSocket
+    this.measurementsService.getRoomMeasurementUpdateFromWebSocket(this.room.id).subscribe(result => {
+      this.measurements?.push(result);
+    });
   }
 }
